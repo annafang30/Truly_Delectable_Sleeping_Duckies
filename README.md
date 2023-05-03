@@ -26,19 +26,25 @@
 
 # Launch Codes:
 1. Navigate in your terminal to a directory where you will store "McTitle" using ```cd```
-2. Clone the repository through 
+<br>
+
+2. Clone the repository with ```git clone git@github.com:annafang30/Truly_Delectable_Sleeping_Duckies.git```
+
+<br>
+
+3. Navigate into the Truly_Delectable_Sleeping_Duckies repo using ```cd Truly_Delectable_Sleeping_Duckies/```
+<br>
+
+4. Create a virtual environment by entering `````python3 -m venv <VENV_NAME>```
+<br>
+
+5. cd into <VENV_NAME> and activate it with ```.bin/activate``` or ```Scripts\activate.bat```
 <br> 
 
-```git clone git@github.com:annafang30/Truly_Delectable_Sleeping_Duckies.git```
-3. Navigate into the Truly_Delectable_Sleeping_Duckies repo using 
-<br>
-
- ```cd Truly_Delectable_Sleeping_Duckies/```
-4. Create a virtual environment by entering
-<br>
-
-`````python3 -m venv <VENV_NAME>```
-5. cd into <VENV_NAME> and activate it with ```.bin/activate``` or ```Scripts\activate.bat```
 6. Install any required python libraries via ```pip install -r ../requirements.txt```
+<br> 
+
 7. Run the app in your terminal by typing ```python3 ../__init__.py```. Clicking on the link labeled "http://127.0.0.1:5000" or cp it into any browser of your choice will give you free reign to explore our project. 
+<br> 
+
 8. Enjoy! 
