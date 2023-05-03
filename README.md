@@ -1,4 +1,4 @@
-# P4 by Truly_Delectable_Sleeping_Duckies
+# McMap it out by Truly_Delectable_Sleeping_Duckies
 ### Anna Fang: PM, front end work (JS and HTML) 
 ### Aleksandra Shifrina: front end work (JS and HTML) and support for back end work (Database and API) 
 ### Samson Wu: middle wear (Flask server) and back end work (API) 
