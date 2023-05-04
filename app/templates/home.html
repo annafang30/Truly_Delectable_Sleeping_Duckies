@@ -13,6 +13,12 @@
     </button>
     <canvas id="can">
     </canvas>
+    {% if login_status %}
+        {{username}}
+        <a href="/logout"><button>logout</button></a>
+    {%else%}
+        <a href="/login"><button>login</button></a>
+    {%endif%}
 </body>
 
 </html>

@@ -10,13 +10,20 @@
   <!-- register -->
   <br>
   <h2>SIGN UP</h2>
-	<form action="/" method="post">
+  <h3>{{ error }}</h3>
+	<form action="/register" method="POST">
+		username
 		<input type="text" name="new_username">
 		<br>
+		password
 		<input type="password" name="new_password">
+		<br>
+		confirm password
+		<input type="password" name="new_password_confirm">
 		<br>
 		<input type="submit" class="register" name="register">
 	</form>
+	<a href="/login"><button>login</button></a>
 </body>
 
 </html>

@@ -9,13 +9,17 @@
 <body>
     <!-- login -->
 	<h2>LOGIN</h2>
-	<form action="/" method="post">
+	<h3>{{error}}</h3>
+	<form action="/login" method="POST">
+		username
 		<input type="text" name="username">
 		<br>
+		password
 		<input type="password" name="password">
 		<br>
 		<input type="submit" class="log in" name="login">
 	</form>
+	<a href="/register"><button>register</button></a>
 </body>
 
 </html>

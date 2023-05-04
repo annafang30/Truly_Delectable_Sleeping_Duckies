@@ -8,12 +8,24 @@ from input_module import *
 from api_module import *
 from db_module import *
 
+reset_database()
+generate_preset_database()
+print_all_users()
+
 app = Flask(__name__)
 app.secret_key = b'pAHy827suhda*82sljsjd'
 
 @app.route('/')
 def home():
-    return render_template("home.html")
+    logged_in = False
+    session_username = ""
+    print_all_users()
+
+    if 'username' in session:
+        logged_in = True
+        session_username = session['username']
+
+    return render_template("home.html", login_status=logged_in, username=session_username)
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -23,8 +35,12 @@ def login():
     if request.method == 'POST': #if submitted
         username = request.form['username']
         password = request.form['password']
+        if check_user_exists(username) and get_user_password(username) == password:
+            session['username'] = request.form['username']
+            return redirect(url_for('home'))
+        return render_template('login.html', error="Wrong username and password")
 
-    return render_template("login.html")
+    return render_template("login.html", error="")
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
@@ -32,19 +48,28 @@ def register():
         return redirect(url_for('home'))
     
     if request.method == 'POST': #if submitted
-        new_user = request.form['new_username']
+        new_user = request.form['new_username'].strip()
         new_pass = request.form['new_password']
+        new_pass_confirm = request.form['new_password_confirm']
 
-        #check if user exists in db already
+        if check_user_exists(new_user):
+            return render_template("register.html", error="Username and password did not meet minimum requirements")
+        
+        if not new_pass == new_pass_confirm:
+            return render_template("register.html", error="Passwords don't match!")
+        
         if check_username_requirements(new_user) and check_password_requirements(new_pass):
-            #add user and login
+            add_newuser(new_user, new_pass)
             session['username'] = new_user
             return redirect(url_for('home'))
+        
+        return render_template("register.html", error="Username and password did not meet minimum requirements")
 
-    return render_template("register.html")
+    return render_template("register.html", error="")
 
 @app.route('/logout')
 def logout():
+    session.pop('username', None)
     return redirect(url_for('home'))
 
 @app.route('/state')
