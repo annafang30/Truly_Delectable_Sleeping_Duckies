@@ -12,8 +12,6 @@
 * (stretch goal) users can login and use a rant forum to complain about mcdonalds ice cream machine outages. 
 
 # APIs: 
-* <a href="https://mcbroken.com/">McBroken [no card]</a> 
-    - This API updates the statuses of McDonalds ice cream machines every 30 minutes
 * <a href="https://github.com/stuy-softdev/notes-and-code/blob/main/api_kb/411_on_Yelp.md">Yelp</a>
     - Gets ratings of the specific McDonald's locations
 * <a href="https://github.com/asopinka/mcdonalds-api">Mcdonalds Location Grabber</a>
