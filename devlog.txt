@@ -24,6 +24,13 @@ AnnaF -- 2023-5-02 20:09
 - fleshed out readme 
 - work on design doc
 
+ALL -- 2023-5-03 21:00
+--------------------------------------------------------------
+- added database table formats for clarity
+- removed individual mcdonald locations page
+- added reason for choosint Bootstrap over Foundation
+- moved McBroken API usage to database
+
 SamsonW -- 2023-5-04 10:47
 --------------------------------------------------------------
 - added necessary app dir
