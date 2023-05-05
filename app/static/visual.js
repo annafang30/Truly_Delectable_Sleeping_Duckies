@@ -14,7 +14,7 @@ var drawMap = (e) => {
 
 function drawState(x,y) {
   ctx.beginPath(); 
-  ctx.arc(x, y, 3, 0, 2*Math.PI);
+  ctx.arc(x, y, 10, 0, 2*Math.PI);
   ctx.fillStyle = "green";
   ctx.fill(); 
 }
