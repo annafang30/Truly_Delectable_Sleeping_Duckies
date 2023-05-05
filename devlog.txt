@@ -41,3 +41,9 @@ SamsonW -- 2023-5-04 10:47
 SamsonW -- 2023-5-04 15:33
 --------------------------------------------------------------
 - added login system
+
+AnnaF and SashaS-- 2023-5-04 21:29
+--------------------------------------------------------------
+- meeting to plan out mapping of states
+- single state function and display 
+- linking of js to html 
