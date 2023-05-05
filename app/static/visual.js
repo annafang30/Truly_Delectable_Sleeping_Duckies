@@ -1,4 +1,5 @@
 var c = document.getElementById("can");
+var map = document.getElementById("map");
 var ctx = c.getContext("2d"); 
 
 var map = new Image();
@@ -20,3 +21,5 @@ function drawState(x,y) {
   ctx.fillStyle = "green";
   ctx.fill(); 
 }
+
+map.addEventListener("click", drawMap);
