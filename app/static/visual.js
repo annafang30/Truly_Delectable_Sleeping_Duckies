@@ -2,7 +2,6 @@ var c = document.getElementById("can");
 var map = document.getElementById("map");
 var ctx = c.getContext("2d"); 
 
-var map = new Image();
   // map.src = "Happiness Score.png";
 
 

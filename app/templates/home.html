@@ -13,13 +13,13 @@
     </button>
     <canvas id="can">
     </canvas>
+    <script src="visual.js"></script>
     {% if login_status %}
         {{username}}
         <a href="/logout"><button>logout</button></a>
     {%else%}
         <a href="/login"><button>login</button></a>
     {%endif%}
-    <script src="visual.js"></script>
 </body>
 
 </html>
