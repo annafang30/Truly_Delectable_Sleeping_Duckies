@@ -51,3 +51,8 @@ AnnaF and SashaS-- 2023-5-04 21:29
 SamsonW -- 2023-5-05 1:46
 --------------------------------------------------------------
 - added temporary forum solution
+
+AnnaF and SashaS -- 2023-5-05 1:46
+--------------------------------------------------------------
+- attempting to make states into an object class 
+- hovering color change function 
