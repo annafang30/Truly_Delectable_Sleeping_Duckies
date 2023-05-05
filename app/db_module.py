@@ -91,7 +91,7 @@ def get_all_forum_posts():
 
     c.execute("SELECT * FROM Forum")
     dict = c.fetchall()
-    dict.sort(key=lambda dict: dict[1])
+    dict.sort(key=lambda dict: dict[4], reverse=True)
     print(dict)
     db.close()
     return dict
@@ -101,7 +101,7 @@ def add_newpost(username, text, parentID):
         return
 
     now = datetime.now()
-    dt_string = now.strftime("%B %d, %Y %H:%M:%S")
+    dt_string = now.strftime("%B %d, %Y %I:%M:%S")
 
     data = (get_forum_table_length(), parentID, username, text, dt_string)
     db = sqlite3.connect(DB_FILE)
@@ -136,11 +136,6 @@ def generate_preset_database():
     add_newuser('anna', 'anna123')
     add_newuser('ravindra', 'ravindra123')
     add_newuser('aleksandra', 'aleksandra123')
-    add_newpost('samson', 'This is the first forum post!', -1)
-    add_newpost('ravindra', 'I am second!', -1)
-    add_newpost('ravindra', 'Thats so cool!', 0)
-    add_newpost('samson', 'Thanks!', 2)
-    add_newpost('aleksandra', 'I agree!', 2)
-    add_newpost('anna', 'I also agree!', 2)
-    add_newpost('samson', 'Awesome', 1)
+
+    add_newpost('samson', 'I HATE THE CHAMBERS ST MCDONALDS!', -1)
    

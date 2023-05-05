@@ -16,6 +16,11 @@
     {%endif%}
     <a href="/"><button>home</button></a>
     <br>
+    <form action="/forum" method="POST">
+        <input type="hidden" name="postid" style="display: none;" value="-1">
+        <input type="text" name="posttext">
+        <input type="submit" name="post">
+    </form>
     <div id="posts"></div>
 
     <script>
@@ -36,27 +41,40 @@
             const newDiv = document.createElement("div");
             newDiv.style.border = "thin solid black";
             newDiv.style.padding = "15px";
-            outerDiv.style.padding = "15px";
+            newDiv.id = posts[i][0];
+            outerDiv.style.padding = "2px";
+            outerDiv.style.paddingLeft = "25px";
             const user = make_text_element("b", posts[i][2]);
             user.style.fontSize = "20px";
             const date = make_text_element("div", posts[i][4]);
             date.style.fontSize = "12px";
             const comment = make_text_element('div', posts[i][3]);
+
+            const form = document.createElement('form');
+            form.action = "/forum";
+            form.method = "POST";
             const textbox = make_text_element("input", "");
-            const button = make_text_element("button", "post");
+            textbox.type="text";
+            textbox.name="posttext";
+            const idbox = make_text_element("input", "");
+            idbox.value = posts[i][0];
+            idbox.type="hidden";
+            idbox.name="postid";
+            idbox.style.display = "none";
+            const button = make_text_element("input", "post");
+            button.type="submit";
 
             newDiv.appendChild(user);
             newDiv.appendChild(date);
             newDiv.appendChild(comment);
+            newDiv.appendChild(form);
+            form.appendChild(idbox);
+            form.appendChild(textbox);
+            form.appendChild(button);
             outerDiv.appendChild(newDiv);
-            newDiv.appendChild(textbox);
-            newDiv.appendChild(button);
 
             comment_blocks[i] = outerDiv;
         }
-
-        main.appendChild(make_text_element("input", ""));
-        main.appendChild(make_text_element("button", "post"));
 
         for(let i = 0; i < posts.length; i++){
                 for(let j = 0; j < posts.length; j++){

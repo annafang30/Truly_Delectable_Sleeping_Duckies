@@ -76,16 +76,25 @@ def logout():
 def state():
     return render_template("state.html")
 
-@app.route('/forum')
+@app.route('/forum', methods=['GET', 'POST'])
 def forum():
     logged_in = False
     session_username = ""
+    posts = get_all_forum_posts()
 
     if 'username' in session:
         logged_in = True
         session_username = session['username']
-
-    posts = get_all_forum_posts()
+    
+    if request.method == "POST" and not logged_in:
+        return redirect(url_for('login'))
+    
+    if request.method == "POST" and logged_in:
+        text = request.form['posttext']
+        id = request.form['postid']
+        if len(text) > 0:
+            add_newpost(session_username, text, int(id))
+            return redirect(url_for("forum"))
 
     return render_template("forum.html", login_status=logged_in, username = session_username, posts=posts)
 
