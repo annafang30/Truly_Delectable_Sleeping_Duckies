@@ -12,7 +12,7 @@ def reset_database():
     c.execute("DROP TABLE IF EXISTS States")
 
     c.execute("CREATE TABLE IF NOT EXISTS Users(username TEXT, password TEXT, userID INTEGER);")
-    c.execute("CREATE TABLE IF NOT EXISTS Forum(postID INTEGER, text TEXT, userID INTEGER);")
+    c.execute("CREATE TABLE IF NOT EXISTS Forum(postID INTEGER, parentID INTEGER, username TEXT, text TEXT, date TEXT);")
     c.execute("CREATE TABLE IF NOT EXISTS McBroken(lat REAL, long REAL, isbroken INTEGER, city TEXT, state TEXT, address TEXT);")
     c.execute("CREATE TABLE IF NOT EXISTS States(name TEXT, happiness REAL, wage REAL);")
 
@@ -54,6 +54,17 @@ def get_user_password(username):
 
     return dict[1]
 
+def get_username_by_ID(ID):
+    db = sqlite3.connect(DB_FILE) #open if file exists, if not it will create a new db          
+    c = db.cursor() #creates db cursor to execute and fetch      
+
+    c.execute("SELECT * FROM Users WHERE ID=?", (ID,))
+    dict = c.fetchone()
+
+    db.close()
+
+    return dict[0]
+
 def get_users_table_length():
     db = sqlite3.connect(DB_FILE) #open if file exists, if not it will create a new db          
     c = db.cursor() #creates db cursor to execute and fetch      
@@ -73,10 +84,63 @@ def print_all_users():
     print(dict)
     db.close()
 
+#gets all posts in their parent id order
+def get_all_forum_posts():
+    db = sqlite3.connect(DB_FILE) #open if file exists, if not it will create a new db          
+    c = db.cursor() #creates db cursor to execute and fetch      
+
+    c.execute("SELECT * FROM Forum")
+    dict = c.fetchall()
+    dict.sort(key=lambda dict: dict[1])
+    print(dict)
+    db.close()
+    return dict
+
+def add_newpost(username, text, parentID):
+    if not check_user_exists(username):
+        return
+
+    now = datetime.now()
+    dt_string = now.strftime("%B %d, %Y %H:%M:%S")
+
+    data = (get_forum_table_length(), parentID, username, text, dt_string)
+    db = sqlite3.connect(DB_FILE)
+    c = db.cursor()
+
+    c.execute("INSERT INTO Forum VALUES(?,?,?,?,?)", data)
+    db.commit()
+    db.close()
+
+def get_forum_table_length():
+    db = sqlite3.connect(DB_FILE) #open if file exists, if not it will create a new db          
+    c = db.cursor() #creates db cursor to execute and fetch      
+
+    c.execute("SELECT * FROM Forum")
+    dict = c.fetchall()
+    db.close()
+
+    return len(dict)
+
+def print_all_forum_posts():
+    db = sqlite3.connect(DB_FILE) #open if file exists, if not it will create a new db          
+    c = db.cursor() #creates db cursor to execute and fetch      
+
+    c.execute("SELECT * FROM Forum")
+    dict = c.fetchall()
+    print(dict)
+    db.close()
+
 def generate_preset_database():
     reset_database()
     add_newuser('samson', 'samson123')
     add_newuser('anna', 'anna123')
     add_newuser('ravindra', 'ravindra123')
     add_newuser('aleksandra', 'aleksandra123')
+    add_newpost('samson', 'This is the first forum post!', -1)
+    add_newpost('ravindra', 'I am second!', -1)
+    add_newpost('ravindra', 'Thats so cool!', 0)
+    add_newpost('samson', 'Thanks!', 2)
+    add_newpost('aleksandra', 'I agree!', 2)
+    add_newpost('anna', 'I also agree!', 2)
+    add_newpost('samson', 'Awesome', 1)
    

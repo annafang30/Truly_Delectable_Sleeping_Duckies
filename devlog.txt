@@ -47,3 +47,7 @@ AnnaF and SashaS-- 2023-5-04 21:29
 - meeting to plan out mapping of states
 - single state function and display 
 - linking of js to html 
+
+SamsonW -- 2023-5-05 12:34
+--------------------------------------------------------------
+- added temporary forum solution

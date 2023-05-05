@@ -33,7 +33,7 @@ def login():
         return redirect(url_for('home'))
     
     if request.method == 'POST': #if submitted
-        username = request.form['username']
+        username = request.form['username'].strip()
         password = request.form['password']
         if check_user_exists(username) and get_user_password(username) == password:
             session['username'] = request.form['username']
@@ -78,7 +78,16 @@ def state():
 
 @app.route('/forum')
 def forum():
-    return render_template("forum.html")
+    logged_in = False
+    session_username = ""
+
+    if 'username' in session:
+        logged_in = True
+        session_username = session['username']
+
+    posts = get_all_forum_posts()
+
+    return render_template("forum.html", login_status=logged_in, username = session_username, posts=posts)
 
 if __name__ == "__main__":
     app.debug = True
