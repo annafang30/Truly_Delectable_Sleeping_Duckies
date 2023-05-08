@@ -60,3 +60,7 @@ AnnaF and SashaS -- 2023-5-05 1:46
 SamsonW -- 2023-5-06 12:59
 --------------------------------------------------------------
 - created a 50 state array that can be hovered over
+
+SamsonW -- 2023-5-08 12:14
+--------------------------------------------------------------
+- added a hide replies functionality on the forum

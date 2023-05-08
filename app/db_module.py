@@ -138,4 +138,9 @@ def generate_preset_database():
     add_newuser('aleksandra', 'aleksandra123')
 
     add_newpost('samson', 'I HATE THE CHAMBERS ST MCDONALDS!', -1)
+    add_newpost('ravindra', 'sameeeeee', 0)
+    add_newpost('aleksandra', 'i disagree!!!', 0)
+    add_newpost('anna', 'why?', 2)
+    add_newpost('ravindra', 'hello forum', -1)
+    add_newpost('samson', 'why hello', 4)
    
