@@ -69,9 +69,8 @@ SamsonW and AnnaF -- 2023-5-08 2:03
 --------------------------------------------------------------
 - circle text and rect?
 
-AnnaF -- 2023-5-08 22:40
+AnnaF -- 2023-5-08 23:40
 --------------------------------------------------------------
-- too many attempts to format the circles into the shape of the united states
-- brute forcing coordinates? 
-- planning discussion for class ^^
+- arranging states into country shape
+- rendering state names onto appropriate states 
 
