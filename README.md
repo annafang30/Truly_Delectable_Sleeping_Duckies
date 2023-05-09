@@ -23,7 +23,7 @@
 * <a href="https://www.kaggle.com/datasets/lislejoem/us-minimum-wage-by-state-from-1968-to-2017">State Minimum Wages</a>
 
 # Launch Codes:
-1. Navigate in your terminal to a directory where you will store "McTitle" using ```cd```
+1. Navigate in your terminal to a directory where you will store "McMapping Disappointment" using ```cd```
 <br>
 
 2. Clone the repository with ```git clone git@github.com:annafang30/Truly_Delectable_Sleeping_Duckies.git```
@@ -42,7 +42,7 @@
 6. Install any required python libraries via ```pip install -r ../requirements.txt```
 <br> 
 
-7. Run the app in your terminal by typing ```python3 ../__init__.py```. Clicking on the link labeled "http://127.0.0.1:5000" or cp it into any browser of your choice will give you free reign to explore our project. 
+7. Run the app in your terminal by typing ```python3 ../__init__.py```. Clicking on the link labeled "http://127.0.0.1:5000" or cping it into any browser of your choice will give you free reign to explore our project. 
 <br> 
 
 8. Enjoy! 
