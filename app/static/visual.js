@@ -70,9 +70,9 @@ c.addEventListener("mousemove", (event) => {
         ctx.fillStyle = "green";
         ctx.beginPath();
         // // hovering text box -> have to figure out how to move to the front and hovering effect 
-        // ctx.strokeStyle = "#D3D3D3";
-        // ctx.rect(states[i].x, states[i].y, 100, 200);
-        // ctx.stroke();    
+        ctx.strokeStyle = "#D3D3D3";
+        ctx.rect(states[i].x, states[i].y, 100, 200);
+        ctx.stroke();    
       }
       else {
         ctx.fillStyle = "red";
