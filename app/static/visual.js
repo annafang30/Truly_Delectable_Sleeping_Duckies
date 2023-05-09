@@ -58,6 +58,10 @@ for(let i = 0; i < 96; i++){
   states[i] = draw_state(35 + 65*(i%12), 35+ 65*(Math.floor(i/12)),TESTER[i]); 
 }
 
+// // new method to draw the rectangle -> maybe make it into its own class? 
+// function draw_hover(x,y){
+// }
+
 c.addEventListener("mousemove", (event) => {
   for(let i = 0; i < 96; i++){
     if(fifty_states_plus_DC.includes(i)){
@@ -65,7 +69,10 @@ c.addEventListener("mousemove", (event) => {
       if(isPointInPath) {
         ctx.fillStyle = "green";
         ctx.beginPath();
-        ctx.stroke();    
+        // // hovering text box -> have to figure out how to move to the front and hovering effect 
+        // ctx.strokeStyle = "#D3D3D3";
+        // ctx.rect(states[i].x, states[i].y, 100, 200);
+        // ctx.stroke();    
       }
       else {
         ctx.fillStyle = "red";
