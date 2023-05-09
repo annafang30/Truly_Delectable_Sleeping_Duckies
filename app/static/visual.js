@@ -26,9 +26,11 @@ function draw_state(x, y, state_name){
     if(x == xcoor & y == ycoor){
       if(fifty_states_plus_DC.includes(i)){
         DEFAULT_COLOR = "red";
+        ctx.strokeStyle = "red"
       }
       else{
         DEFAULT_COLOR = "white";
+        ctx.strokeStyle = "white"
       }
     }
   }
@@ -50,11 +52,6 @@ function draw_state(x, y, state_name){
 }
 
 const states = [];
-
-// // populate 50 states
-// for(let i = 0; i < NUM_STATES; i++){
-//   states[i] = draw_state(50 + 65*(i%10), 50 + 65 * (Math.floor(i/10)), STATE_ABBREVIATIONS[i]);
-// }
 
 // populate map with 96 circles INCLUDING 50 states and DC
 for(let i = 0; i < 96; i++){
