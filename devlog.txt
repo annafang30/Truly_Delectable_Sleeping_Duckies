@@ -68,3 +68,10 @@ SamsonW -- 2023-5-08 12:14
 SamsonW and AnnaF -- 2023-5-08 2:03
 --------------------------------------------------------------
 - circle text and rect?
+
+AnnaF -- 2023-5-08 22:40
+--------------------------------------------------------------
+- too many attempts to format the circles into the shape of the united states
+- brute forcing coordinates? 
+- planning discussion for class ^^
+
