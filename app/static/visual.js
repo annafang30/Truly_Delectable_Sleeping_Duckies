@@ -88,7 +88,7 @@ function clear_hover(box) {
 
 c.addEventListener("mousemove", (event) => {
   for (let i = 0; i < 96; i++) {
-    hover; 
+    var hover; 
     if (fifty_states_plus_DC.includes(i)) {
       const isPointInPath = ctx.isPointInPath(states[i].path, event.offsetX, event.offsetY);
       if (isPointInPath) {
@@ -102,9 +102,9 @@ c.addEventListener("mousemove", (event) => {
       }
       else {
         ctx.fillStyle = "red";
-        if(hover === null) {
-          clear_hover(hover);
-        }
+        // if(hover === null) {
+        //   clear_hover(hover);
+        // }
       }
       ctx.fill(states[i].path);
       ctx.fillStyle = "black";
