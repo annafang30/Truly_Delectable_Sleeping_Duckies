@@ -9,7 +9,6 @@ STATES = {
     'CA': 'California',
     'CO': 'Colorado',
     'CT': 'Connecticut',
-    'DC': 'District of Columbia',
     'DE': 'Delaware',
     'FL': 'Florida',
     'GA': 'Georgia',
@@ -84,8 +83,25 @@ def get_min_wage_by_state(state):
             return s["minimumWage"]
 
 def get_state_stats(state):
-    return {
-        "min_wage" : get_min_wage_by_state(STATES[state]),
-        "happiness" : get_happiness_by_state(STATES[state]),
-        "broken_ratio" : round(get_ratio_broken_by_state(state)*100, 2)
-    }
+    try:
+        return {
+            "state_short" : state,
+            "state_full" : STATES[state],
+            "min_wage" : "{:.{}f}".format(get_min_wage_by_state(STATES[state]), 2),
+            "happiness" : get_happiness_by_state(STATES[state]),
+            "broken_ratio" : round(get_ratio_broken_by_state(state)*100, 2)
+        }
+    except:
+        return {
+            "state_short" : state,
+            "state_full" : STATES[state],
+            "min_wage" : get_min_wage_by_state(STATES[state]),
+            "happiness" : get_happiness_by_state(STATES[state]),
+            "broken_ratio" : round(get_ratio_broken_by_state(state)*100, 2)
+        }
+
+def get_all_states_stats():
+    list = []
+    for key in STATES:
+        list.append(get_state_stats(key))
+    return list

@@ -18,13 +18,19 @@
 
     <!-- JS STUFF -->
     <!-- <img src="../static/Happiness.png" alt="oops" width="400" height="400"></img> -->
-    <div id="map">
+    <div id="hoverbox" style="padding: 2px; z-index: 100; background-color: white; border-width: 2px; border-style: solid; border-color: black; width: 150px; height: 150px; display: none; pointer-events: none; position: fixed;">
+        <h3 style="font-weight: bolder;"></h3>
+        <h5></h5>
+        <h5></h5>
+    </div>
+    <div id="map" style = "padding: 5px;">
         <!-- testing-->
         <canvas id="main" class="canvas">
         </canvas>
-        <canvas id="layer1" class="canvas">
-        </canvas>
     </div>
+    <script>
+        var stats = {{stats|tojson}};
+    </script>
     <script src="../static/visual.js"></script>
 </body>
 
