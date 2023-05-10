@@ -24,7 +24,7 @@ class State {
   y;
   name;
   path;
-  containsHover; 
+  containsHover = false; 
 }
 
 class Box {
@@ -110,11 +110,11 @@ for (let i = 0; i < 96; i++) {
 // }
 function draw_hover(x,y){
   let path = new Path2D();
-  ctx.fillStyle = DEFAULT_COLOR;
+  layerctx.fillStyle = DEFAULT_COLOR;
   path.rect(x, y, 100, 200); 
-  ctx.stroke(path);
-  ctx.fill(path);
-  ctx.fillStyle = "black";
+  layerctx.stroke(path);
+  layerctx.fill(path);
+  layerctx.fillStyle = "black";
 
   hover = new Box();
   hover.x = x;
@@ -124,9 +124,8 @@ function draw_hover(x,y){
   return hover; 
 }
 
-function clear_hover(box) {
-  let path = box.path; 
-  path.remove(); 
+function clear_hover() {
+  layerctx.clearRect(0, 0, d.width, d.height); 
 }
 c.addEventListener("mousemove", (event) => {
   for (let i = 0; i < 96; i++) {
@@ -134,14 +133,14 @@ c.addEventListener("mousemove", (event) => {
     if (fifty_states_plus_DC.includes(i)) {
       const isPointInPath = ctx.isPointInPath(states[i].path, event.offsetX, event.offsetY);
       if (isPointInPath) {
-        ctx.fillStyle = "green";
         ctx.beginPath();
         x = event.offsetX; 
         y = event.offsetY;
         if (!states[i].containsHover) { 
-          hover = draw_hover(event.offsetX, event.offsetY); 
-          states[i].containsHover = True; 
+          hover = draw_hover(x, y); 
+          states[i].containsHover = true; 
         }
+        ctx.fillStyle = "green";
         
         // // hovering text box -> have to figure out how to move to the front and hovering effect 
         // ctx.strokeStyle = "#D3D3D3";
