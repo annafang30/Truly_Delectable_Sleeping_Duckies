@@ -48,11 +48,11 @@ AnnaF and SashaS-- 2023-5-04 21:29
 - single state function and display 
 - linking of js to html 
 
-SamsonW -- 2023-5-05 1:46
+SamsonW -- 2023-5-05 13:46
 --------------------------------------------------------------
 - added temporary forum solution
 
-AnnaF and SashaS -- 2023-5-05 1:46
+AnnaF and SashaS -- 2023-5-05 13:46
 --------------------------------------------------------------
 - attempting to make states into an object class 
 - hovering color change function 
@@ -77,6 +77,11 @@ AnnaF -- 2023-5-08 23:40
 SamsonW -- 2023-5-10 12:06
 --------------------------------------------------------------
 - state pages and links
+
+AnnaF and SashaS -- 2023-5-010 1:26
+--------------------------------------------------------------
+- too many attempts to make state hovering work (never again oml)
+- making plans for future front-end work 
 
 SamsonW -- 2023-5-10 15:16
 --------------------------------------------------------------
