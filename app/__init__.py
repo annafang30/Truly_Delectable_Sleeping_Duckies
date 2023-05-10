@@ -77,9 +77,21 @@ def logout():
     return redirect(url_for('home'))
 
 
-@app.route('/state')
-def state():
-    return render_template("state.html")
+@app.route('/state/<state_name>', methods=['GET'])
+def state(state_name):
+    if not state_name in list(STATES.keys()):
+        return redirect(url_for('home'))
+
+    logged_in = False
+    session_username = ""
+
+    if 'username' in session:
+        logged_in = True
+        session_username = session['username']
+
+    stats = get_state_stats(state_name)
+
+    return render_template("state.html", login_status=logged_in, username=session_username, state=STATES[state_name], stats=stats)
 
 
 @app.route('/forum', methods=['GET', 'POST'])
