@@ -13,6 +13,7 @@ class State {
   y;
   name;
   path;
+  hover; 
 }
 
 class Box {
@@ -58,6 +59,7 @@ function draw_state(x, y, state_name) {
 }
 
 const states = [];
+const boxes = []; 
 
 // populate map with 96 circles INCLUDING 50 states and DC
 for (let i = 0; i < 96; i++) {
@@ -88,13 +90,19 @@ function clear_hover(box) {
 
 c.addEventListener("mousemove", (event) => {
   for (let i = 0; i < 96; i++) {
-    hover; 
+    var hover; 
     if (fifty_states_plus_DC.includes(i)) {
       const isPointInPath = ctx.isPointInPath(states[i].path, event.offsetX, event.offsetY);
       if (isPointInPath) {
         ctx.fillStyle = "green";
         ctx.beginPath();
-        hover = draw_hover(event.offsetX, event.offsetY); 
+        x = event.offsetX; 
+        y = event.offsetY;
+        if (!boxes.includes((x,y))) { 
+          hover = draw_hover(event.offsetX, event.offsetY); 
+          boxes.push((x,y)); 
+        }
+        
         // // hovering text box -> have to figure out how to move to the front and hovering effect 
         // ctx.strokeStyle = "#D3D3D3";
         // ctx.rect(states[i].x, states[i].y, 100, 200);
