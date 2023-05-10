@@ -24,14 +24,14 @@ class State {
   y;
   name;
   path;
-  hover; 
+  containsHover; 
 }
 
-// class Box {
-//   x;
-//   y;
-//   path;
-// }
+class Box {
+  x;
+  y;
+  path;
+}
 
 fifty_states_plus_DC = [0, 11, 22, 23, 35, 34, 33, 32, 31, 30, 29, 28, 27, 26, 25, 46, 45, 44, 43, 42, 41, 40, 39, 38, 37, 58, 57, 56, 55, 54, 53, 52, 51, 50, 49, 69, 68, 67, 66, 65, 64, 63, 62, 76, 77, 78, 79, 80, 84, 88, 93];
 function draw_state(x, y, state_name) {
@@ -108,7 +108,26 @@ for (let i = 0; i < 96; i++) {
 
 //   return hover; 
 // }
+function draw_hover(x,y){
+  let path = new Path2D();
+  ctx.fillStyle = DEFAULT_COLOR;
+  path.rect(x, y, 100, 200); 
+  ctx.stroke(path);
+  ctx.fill(path);
+  ctx.fillStyle = "black";
 
+  hover = new Box();
+  hover.x = x;
+  hover.y = y;
+  hover.path = path;
+
+  return hover; 
+}
+
+function clear_hover(box) {
+  let path = box.path; 
+  path.remove(); 
+}
 c.addEventListener("mousemove", (event) => {
   for (let i = 0; i < 96; i++) {
     var hover; 
@@ -119,9 +138,9 @@ c.addEventListener("mousemove", (event) => {
         ctx.beginPath();
         x = event.offsetX; 
         y = event.offsetY;
-        if (!boxes.includes((x,y))) { 
+        if (!states[i].containsHover) { 
           hover = draw_hover(event.offsetX, event.offsetY); 
-          boxes.push((x,y)); 
+          states[i].containsHover = True; 
         }
         
         // // hovering text box -> have to figure out how to move to the front and hovering effect 
@@ -131,6 +150,10 @@ c.addEventListener("mousemove", (event) => {
       }
       else {
         ctx.fillStyle = "red";
+        if (states[i].containsHover) {
+            clear_hover(hover); 
+            states[i].containsHover = false;
+        }
       }
       ctx.fill(states[i].path);
       ctx.fillStyle = "black";
