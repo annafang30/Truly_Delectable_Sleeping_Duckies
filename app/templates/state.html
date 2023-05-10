@@ -1,0 +1,23 @@
+<!DocTYPE html> 
+
+<html>
+
+<head>
+</head>
+
+<body>
+	<h2>{{state}}</h2>
+    {% if login_status %}
+        {{username}}
+        <a href="/logout"><button>logout</button></a>
+    {%else%}
+        <a href="/login"><button>login</button></a>
+    {%endif%}
+    <a href="/"><button>home</button></a>
+    <br>
+    <p>Happiness: {{stats["happiness"]}}</p>
+    <p>Minimum Wage: ${{stats["min_wage"]}}</p>
+    <p>Broken Icecream Machines: {{stats["broken_ratio"]}}%</p>
+</body>
+
+</html>

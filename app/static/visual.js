@@ -124,3 +124,16 @@ c.addEventListener("mousemove", (event) => {
     }
   }
 });
+
+c.addEventListener("click", (e) => {
+  for (let i = 0; i < 96; i++) {
+    // var hover; 
+     if (fifty_states_plus_DC.includes(i)) {
+       const isPointInPath = ctx.isPointInPath(states[i].path, event.offsetX, event.offsetY);
+       if (isPointInPath) {
+        console.log(states[i]);
+        window.location.href = '/state/' + states[i].name;
+       }  
+     }
+   }
+})
