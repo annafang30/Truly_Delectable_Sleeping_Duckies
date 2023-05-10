@@ -13,7 +13,6 @@ def reset_database():
 
     c.execute("CREATE TABLE IF NOT EXISTS Users(username TEXT, password TEXT, userID INTEGER);")
     c.execute("CREATE TABLE IF NOT EXISTS Forum(postID INTEGER, parentID INTEGER, username TEXT, text TEXT, date TEXT);")
-    c.execute("CREATE TABLE IF NOT EXISTS McBroken(lat REAL, long REAL, isbroken INTEGER, city TEXT, state TEXT, address TEXT);")
     c.execute("CREATE TABLE IF NOT EXISTS States(name TEXT, happiness REAL, wage REAL);")
 
     db.commit()

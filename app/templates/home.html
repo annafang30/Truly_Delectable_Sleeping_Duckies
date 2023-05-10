@@ -1,27 +1,31 @@
-<!DocTYPE html> 
+<!DocTYPE html>
 
 <html>
 
 <head>
-<link rel ="stylesheet" type="text/css" href="static/style.css">
+    <link rel="stylesheet" type="text/css" href="static/style.css">
 </head>
 
 <body>
-    <!-- <img src="../static/Happiness.png" alt="oops" width="400" height="400"></img> -->
-    <div id="map">
-        
-    </button>
-    <canvas id="can">
-    </canvas>
-        
-    <script src="../static/visual.js"></script>
+    <h1>McMapping Disappointment</h1>
     {% if login_status %}
         {{username}}
-        <a href="/logout"><button>logout</button></a>
-    {%else%}
-        <a href="/login"><button>login</button></a>
+        <a href="/logout"><button class="bottom-left">logout</button></a>
+        {%else%}
+        <a href="/login"><button class="bottom-left">login</button></a>
     {%endif%}
-    <a href="/forum"><button>forum</button></a>
+    <a href="/forum"><button class="bottom-right">forum</button></a>
+
+    <!-- JS STUFF -->
+    <!-- <img src="../static/Happiness.png" alt="oops" width="400" height="400"></img> -->
+    <div id="map">
+        <!-- testing-->
+        <canvas id="main" class="canvas">
+        </canvas>
+        <canvas id="layer1" class="canvas">
+        </canvas>
+    </div>
+    <script src="../static/visual.js"></script>
 </body>
 
 </html>
