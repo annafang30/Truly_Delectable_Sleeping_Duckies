@@ -9,27 +9,25 @@
 <body>
     <h1>McMapping Disappointment</h1>
     {% if login_status %}
-        {{username}}
-        <a href="/logout"><button class="bottom-left">logout</button></a>
-        {%else%}
-        <a href="/login"><button class="bottom-left">login</button></a>
+    {{username}}
+    <a href="/logout"><button>logout</button></a>
+    {%else%}
+    <a href="/login"><button>login</button></a>
     {%endif%}
-    <a href="/forum"><button class="bottom-right">forum</button></a>
+    <a href="/forum"><button>forum</button></a>
+    <br><br>
 
-    <!-- JS STUFF -->
-    <!-- <img src="../static/Happiness.png" alt="oops" width="400" height="400"></img> -->
-    <div id="hoverbox" style="padding: 2px; z-index: 100; background-color: white; border-width: 2px; border-style: solid; border-color: black; width: 150px; height: 150px; display: none; pointer-events: none; position: fixed;">
-        <h3 style="font-weight: bolder;"></h3>
+    <div id="hoverbox"
+        style="padding: 2px; z-index: 100; background-color: white; border-width: 2px; border-style: solid; border-color: black; width: 150px; height: 150px; display: none; pointer-events: none; position: fixed;">
+        <h3></h3>
         <h5></h5>
         <h5></h5>
     </div>
-    <div id="map" style = "padding: 5px;">
-        <!-- testing-->
-        <canvas id="main" class="canvas">
-        </canvas>
-    </div>
+
+    <canvas id="main" style="border: 2px solid;"></canvas>
+
     <script>
-        var stats = {{stats|tojson}};
+        var stats = {{ stats| tojson}};
     </script>
     <script src="../static/visual.js"></script>
 </body>

@@ -70,7 +70,10 @@ with open('app/minimum_wages.json') as data:
 def get_ratio_broken_by_state(state):
     broken = len([i for i in MCBROKEN if i["properties"]["is_broken"] and i["properties"]["is_active"] and i["properties"]["state"] == state])
     working = len([i for i in MCBROKEN if not i["properties"]["is_broken"] and i["properties"]["is_active"] and i["properties"]["state"] == state])
-    return broken/(broken+working)
+    try:
+        return broken/(broken+working)
+    except:
+        return 0
 
 def get_happiness_by_state(state):
     for s in HAPPINESS:
