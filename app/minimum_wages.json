@@ -703,5 +703,50 @@
     "growthSince2010": 0.03487,
     "minimumWage": 7.25,
     "rank": 47
+  },
+  {
+    "fips": "46",
+    "state": "South Carolina",
+    "densityMi": 12.1814,
+    "pop2023": 923484,
+    "pop2022": 909824,
+    "pop2020": 887799,
+    "pop2019": 880437.1,
+    "pop2010": 814180,
+    "growthRate": 0.01501,
+    "growth": 13660,
+    "growthSince2010": 0.13425,
+    "minimumWage": 7.25,
+    "rank": 48
+  },
+  {
+    "fips": "46",
+    "state": "Alabama",
+    "densityMi": 12.1814,
+    "pop2023": 923484,
+    "pop2022": 909824,
+    "pop2020": 887799,
+    "pop2019": 880437.1,
+    "pop2010": 814180,
+    "growthRate": 0.01501,
+    "growth": 13660,
+    "growthSince2010": 0.13425,
+    "minimumWage": 7.25,
+    "rank": 49
+  },
+  {
+    "fips": "46",
+    "state": "Tennessee",
+    "densityMi": 12.1814,
+    "pop2023": 923484,
+    "pop2022": 909824,
+    "pop2020": 887799,
+    "pop2019": 880437.1,
+    "pop2010": 814180,
+    "growthRate": 0.01501,
+    "growth": 13660,
+    "growthSince2010": 0.13425,
+    "minimumWage": 7.25,
+    "rank": 50
   }
 ]

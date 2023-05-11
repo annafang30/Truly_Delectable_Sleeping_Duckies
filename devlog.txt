@@ -86,3 +86,9 @@ AnnaF and SashaS -- 2023-5-010 1:26
 SamsonW -- 2023-5-10 15:16
 --------------------------------------------------------------
 - hover states work!!!
+
+SamsonW -- 2023-5-11 9:18
+--------------------------------------------------------------
+- cleaned up home page map and visual.js
+- added missing 3 states in happiness json
+- handled division by zero in mcbroken ratio function

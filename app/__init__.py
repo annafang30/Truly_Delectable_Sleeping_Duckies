@@ -10,7 +10,6 @@ from db_module import *
 
 reset_database()
 generate_preset_database()
-print_all_users()
 
 app = Flask(__name__)
 app.secret_key = b'pAHy827suhda*82sljsjd'
@@ -20,8 +19,6 @@ app.secret_key = b'pAHy827suhda*82sljsjd'
 def home():
     logged_in = False
     session_username = ""
-    stats = get_all_states_stats()
-    print(stats)
 
     if 'username' in session:
         logged_in = True
