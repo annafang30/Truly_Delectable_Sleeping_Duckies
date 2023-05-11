@@ -121,3 +121,6 @@ def make_money_two_decimals(float):
     if len(after_zero) == 1:
         return str(float) + "0"
     return str(float)
+
+def get_latlon(zipcode):
+  result = requests.get("https://forecast.weather.gov/zipcity.php?inputstring=11420")
