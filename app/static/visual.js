@@ -5,11 +5,11 @@ var hover_box = document.getElementById("hoverbox");
 const width = ctx.canvas.width;
 const height = ctx.canvas.height;;
 
-const ROWS = 8;
+const ROWS = 9;
 const COLS = 12;
 
 // using to format the state map
-const VALID_STATES = ['AK', '', '', '', '', '', '', '', '', '', '', 'ME', '', '', '', '', '', '', '', '', '', 'VT', 'NH', '', '', 'WA', 'MT', 'ND', 'MN', 'WI', '', 'MI', '', 'NY', 'MA', 'RI', '', 'ID', 'WY', 'SD', 'IA', 'IL', 'IN', 'OH', 'PA', 'NJ', 'CT', '', '', 'OR', 'NV', 'CO', 'NE', 'MO', 'KY', 'WV', 'MD', 'DE', '', '', '', 'CA', 'AZ', 'UT', 'KS', 'AR', 'TN', 'VA', 'NC', '', '', '', '', '', '', 'NM', 'OK', 'LA', 'MS', 'AL', 'SC', '', '', '', 'HI', '', '', 'TX', '', '', '', '', 'FL', '', '', ''];
+const VALID_STATES = ['AK', '', '', '', '', '', '', '', '', '', '', 'ME', '', '', '', '', '', '', '', '', '', 'VT', 'NH', '', '', 'WA', 'MT', 'ND', 'MN', 'WI', '', 'MI', '', 'NY', 'MA', 'RI', '', 'ID', 'WY', 'SD', 'IA', 'IL', 'IN', 'OH', 'PA', 'NJ', 'CT', '', '', 'OR', 'NV', 'CO', 'NE', 'MO', 'KY', 'WV', 'MD', 'DE', '', '', '', 'CA', 'AZ', 'UT', 'KS', 'AR', 'TN', 'VA', 'NC', '', '', '', '', '', '', 'NM', 'OK', 'LA', 'MS', 'AL', 'SC', '', '', '', '', '', '', 'TX', '', '', '', 'GA', '', '', '', '', 'HI', '', '', '', '', '', '', '', 'FL', '', '', ''];
 
 class State {
   x;
@@ -45,10 +45,10 @@ const states = [];
 for (let r = 0; r < ROWS; r++) {
   for (let c = 0; c < COLS; c++) {
     if (r % 2 == 1) {
-      states[r * COLS + c] = draw_state(70 + 65 * c, 35 + 65 * r, VALID_STATES[r * COLS + c]);
+      states[r * COLS + c] = draw_state(70 + 65 * c, 35 + 60 * r, VALID_STATES[r * COLS + c]);
     }
     else {
-      states[r * COLS + c] = draw_state(35 + 65 * c, 35 + 65 * r, VALID_STATES[r * COLS + c]);
+      states[r * COLS + c] = draw_state(35 + 65 * c, 35 + 60 * r, VALID_STATES[r * COLS + c]);
     }
   }
 }
