@@ -121,6 +121,3 @@ def make_money_two_decimals(float):
     if len(after_zero) == 1:
         return str(float) + "0"
     return str(float)
-
-print([i for i in list(STATES.keys()) if i not in [list(STATES.keys())[list(STATES.values()).index(i["state"])] for i in MINIMUM_WAGES]])
-print([i for i in MCBROKEN if i["properties"]["state"] == 'MN'])
