@@ -35,7 +35,7 @@ def login():
 
     if request.method == 'POST':  # if submitted
         username = request.form['username'].strip()
-        password = request.form['password']
+        password = request.form['password'].strip()
         if check_user_exists(username) and get_user_password(username) == password:
             session['username'] = request.form['username']
             return redirect(url_for('home'))
@@ -48,6 +48,8 @@ def login():
 def register():
     if 'username' in session:  # if already logged in
         return redirect(url_for('home'))
+    
+    users = get_all_users()
 
     if request.method == 'POST':  # if submitted
         new_user = request.form['new_username'].strip()
@@ -55,19 +57,19 @@ def register():
         new_pass_confirm = request.form['new_password_confirm']
 
         if check_user_exists(new_user):
-            return render_template("register.html", error="Username and password did not meet minimum requirements")
+            return redirect(url_for("register"))
 
         if not new_pass == new_pass_confirm:
-            return render_template("register.html", error="Passwords don't match!")
+            return redirect(url_for("register"))
 
         if check_username_requirements(new_user) and check_password_requirements(new_pass):
             add_newuser(new_user, new_pass)
             session['username'] = new_user
             return redirect(url_for('home'))
 
-        return render_template("register.html", error="Username and password did not meet minimum requirements")
+        return redirect(url_for("register"))
 
-    return render_template("register.html", error="")
+    return render_template("register.html", users=users)
 
 
 @app.route('/logout')

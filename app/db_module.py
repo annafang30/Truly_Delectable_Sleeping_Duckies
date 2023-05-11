@@ -13,7 +13,6 @@ def reset_database():
 
     c.execute("CREATE TABLE IF NOT EXISTS Users(username TEXT, password TEXT, userID INTEGER);")
     c.execute("CREATE TABLE IF NOT EXISTS Forum(postID INTEGER, parentID INTEGER, username TEXT, text TEXT, date TEXT);")
-    c.execute("CREATE TABLE IF NOT EXISTS States(name TEXT, happiness REAL, wage REAL);")
 
     db.commit()
     db.close()
@@ -73,6 +72,19 @@ def get_users_table_length():
     db.close()
 
     return len(dict)
+
+def get_all_users():
+    db = sqlite3.connect(DB_FILE) #open if file exists, if not it will create a new db          
+    c = db.cursor() #creates db cursor to execute and fetch      
+
+    c.execute("SELECT * FROM Users")
+    dict = c.fetchall()
+
+    db.close()
+
+    return [i[0] for i in dict]
+    
+
 
 def print_all_users():
     db = sqlite3.connect(DB_FILE) #open if file exists, if not it will create a new db          

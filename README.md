@@ -33,16 +33,16 @@
 3. Navigate into the Truly_Delectable_Sleeping_Duckies repo using ```cd Truly_Delectable_Sleeping_Duckies/```
 <br>
 
-4. Create a virtual environment by entering `````python3 -m venv <VENV_NAME>```
+4. Create a virtual environment by entering `````python3 -m venv <VENV_PATH>```
 <br>
 
-5. cd into <VENV_NAME> and activate it with ```.bin/activate``` or ```Scripts\activate.bat```
+5. Activate the virtual environment with ```. <VENV_PATH>/bin/activate``` or ```Scripts\activate.bat```
 <br> 
 
-6. Install any required python libraries via ```pip install -r ../requirements.txt```
+6. Install any required python libraries via ```pip install -r requirements.txt```
 <br> 
 
-7. Run the app in your terminal by typing ```python3 ../__init__.py```. Clicking on the link labeled "http://127.0.0.1:5000" or cping it into any browser of your choice will give you free reign to explore our project. 
+7. Run the app in your terminal by typing ```python3 app/__init__.py```. Clicking on the link labeled "http://127.0.0.1:5000" or cping it into any browser of your choice will give you free reign to explore our project. 
 <br> 
 
 8. Enjoy! 

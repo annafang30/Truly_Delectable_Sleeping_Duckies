@@ -1,30 +1,41 @@
-<!DocTYPE html> 
+<!DocTYPE html>
 
 <html>
 
 <head>
-<link rel ="stylesheet" type="text/css" href="static/style.css">
+	<link rel="stylesheet" type="text/css" href="static/style.css">
 </head>
 
 <body>
-  <!-- register -->
-  <br>
-  <h2>SIGN UP</h2>
-  <h3>{{ error }}</h3>
+	<h2>REGISTER</h2>
+
 	<form action="/register" method="POST">
 		username
-		<input type="text" name="new_username">
+		<input type="text" name="new_username" id="username">
 		<br>
 		password
-		<input type="password" name="new_password">
+		<input type="password" name="new_password" id="password">
 		<br>
 		confirm password
-		<input type="password" name="new_password_confirm">
+		<input type="password" name="new_password_confirm" id="password_confirm">
 		<br>
 		<input type="submit" class="register" name="register">
 	</form>
+
+	<div>
+		<li id="caps" style="display: none;">⚠️Caps are on</li>
+		<li id="r_user" style="display: block;">Username has at least 4 characters</li>
+		<li id="r_pass" style="display: block;">Password has at least 4 characters</li>
+		<li id="pass_check" style="display: block;">Passwords match</li>
+	</div>
+
 	<a href="/login"><button>login</button></a>
 	<a href="/"><button>home</button></a>
+
+	<script>
+		var users = {{users|tojson}};
+	</script>
+	<script src="../static/js/register.js"></script>
 </body>
 
 </html>
