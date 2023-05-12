@@ -75,12 +75,13 @@ def register():
 def conclusion():
     logged_in = False
     session_username = ""
+    stats = get_all_states_stats()
     
     if 'username' in session:
         logged_in = True
         session_username = session['username']
 
-    return render_template("conclusions.html", login_status=logged_in, username=session_username)
+    return render_template("conclusions.html", login_status=logged_in, username=session_username, stats=stats)
 
 @app.route('/logout')
 def logout():

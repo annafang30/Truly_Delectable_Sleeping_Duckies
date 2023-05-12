@@ -1,16 +1,6 @@
 // import Chart from 'chart.js/auto';
 var c = document.getElementById("myChart");
 
-new Chart(c, {
-    type: "line",
-    data: data,
-    options: {
-      responsive: true,
-      maintainAspectRatio: false, 
-      }
-
-});
-
 // example data to get this working ^^
 const data = {
   datasets: [{
@@ -21,6 +11,17 @@ const data = {
     tension: 0.1
   }]
 }
+
+new Chart(c, {
+    type: "line",
+    data: data,
+    options: {
+      responsive: true,
+      maintainAspectRatio: false, 
+      }
+
+});
+
 
 
 
