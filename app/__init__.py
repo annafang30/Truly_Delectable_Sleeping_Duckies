@@ -71,6 +71,16 @@ def register():
 
     return render_template("register.html", users=users)
 
+# @app.route('/conclusion')
+# def conclusion():
+#     logged_in = False
+#     session_username = ""
+    
+#     if 'username' in session:
+#         logged_in = True
+#         session_username = session['username']
+
+#     return render_template("conclusions.html", login_status=logged_in, username=session_username)
 
 @app.route('/logout')
 def logout():
