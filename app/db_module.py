@@ -4,14 +4,14 @@ import json
 import requests
 
 DB_FILE="database.db"
-MCBROKEN_URL = "https://raw.githubusercontent.com/rashiq/mcbroken-archive/main/mcbroken.json"
+MCBROKEN_URL = "http://samsonahh.me:7000/data"
 STATE_HAPPINESS_URL = "https://raw.githubusercontent.com/samsonahh/state_stats/main/happy_states.json"
 STATE_WAGE_URL = "https://raw.githubusercontent.com/samsonahh/state_stats/main/minimum_wages.json"
 
 try:
     mcbroken_json = requests.get(MCBROKEN_URL)
     MCBROKEN = [i for i in json.loads(
-        mcbroken_json.text) if i["properties"]["country"] == "USA"]
+        mcbroken_json.text)]
 except:
     MCBROKEN = {}
 
