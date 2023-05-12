@@ -75,8 +75,8 @@ def register():
 def conclusion():
     logged_in = False
     session_username = ""
-    stats = get_all_states_stats()
-    
+    stats = get_all_states_stats(); 
+
     if 'username' in session:
         logged_in = True
         session_username = session['username']
