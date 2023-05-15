@@ -15,7 +15,13 @@
     <a href="/"><button>home</button></a>
     <br> 
     <!-- // canvas rendering  -->
-    <canvas id="myChart" width="500" height="550"></canvas>
+    <div style="width:900px;height:700px">
+        <canvas id="myChart"></canvas>
+</div>
+    <br>
+    <div style="width:500px;height:550px">
+        <canvas id="myChart2"></canvas>
+    </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
     <script>
         var stats = {{stats|tojson}};
