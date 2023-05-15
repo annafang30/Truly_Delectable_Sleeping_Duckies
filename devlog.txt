@@ -99,3 +99,15 @@ DATA CONDUIT (updated)
 - data is pulled from json files and the repo of Mcbroken creator 
 - data except for any relevant to Mcbroken is pushed into the flask database (which contains login information, state happiness, and min wage)
 - info from database is called by __innit__.py and is rendered using html templates and JS 
+
+All -- 2023-5-15 13:19
+--------------------------------------------------------------
+- charting single y-axos line graph 
+- work on states.html (working out API linkage :D) 
+
+AnnaF -- 2023-5-15 13:19
+--------------------------------------------------------------
+- dual y-axis graph 
+- working out scattergram (help me please) 
+- PM file mannagement :,) 
+
