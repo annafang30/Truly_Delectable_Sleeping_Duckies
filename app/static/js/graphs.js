@@ -18,7 +18,7 @@ for(let r = 0; r<50; r++){
 }
 
 for(let h = 0; h<50; h++){
-  coordinates[h] = {x: parseFloat(stats[keys[h]]["broken_ratio"].replace("%", "")), y: stats[keys[h]]["happiness"]};
+  coordinates[h] = {x: brokenness[h], y: happiness[h]};
 }
 
  console.log(coordinates);
@@ -143,11 +143,11 @@ new Chart(d, {
   },
 });
 
-// scattergraph (single relation)
+// scattergraph - single data set 
 
 const scatterData = {
   datasets: [{
-    label: 'Scatter Dataset',
+    label: '',
     data: coordinates,
     backgroundColor: 'red'
   }],
@@ -180,4 +180,3 @@ new Chart(e, {
     },
   },
 });
-
