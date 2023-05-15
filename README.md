@@ -1,23 +1,22 @@
 # McMapping Disappointment by Truly_Delectable_Sleeping_Duckies
 ### Anna Fang: PM, front end work (JS and HTML) 
-### Aleksandra Shifrina: front end work (JS and HTML) and support for back end work (Database and API) 
+### Aleksandra Shifrina: front end work (JS and HTML)
 ### Samson Wu: middle wear (Flask server) and back end work (API) 
 ### Ravindra Mangar: back end (Database and API)
  
 # Project Description: 
 * display of a map visualization of the United States
-* hovering displays of happiness rankings and minimum wage of individual states 
-* display of all mcdonalds locations, ice cream machine status, and yelp rating within a state
-* users can find mcdonald locations through address search 
-* (stretch goal) users can login and use a rant forum to complain about mcdonalds ice cream machine outages. 
+* hovering displays of state happiness (%) and ice cream machine brokenness of individual states 
+* clicking into a state will display all above data plus minimum wage, a display of local mcdonalds locations, and yelp ratings. 
+* (stretch goal?) users can find mcdonald locations through address search 
+* users can login and use a rant forum to complain about mcdonalds ice cream machine outages. 
+* users can peruse through graphical representations of our data and our conclusions 
 
 # APIs: 
 * <a href="https://github.com/stuy-softdev/notes-and-code/blob/main/api_kb/411_on_Yelp.md">Yelp</a>
     - Gets ratings of the specific McDonald's locations
-* <a href="https://github.com/asopinka/mcdonalds-api">Mcdonalds Location Grabber</a>
-    - Allows us to query nearby McDonald's locations
 
-# Datasets (as of now): 
+# Datasets (this will fluctuate ^^): 
 * <a href="https://www.kaggle.com/datasets/thedevastator mcdonalds-ice-cream-machines-broken-timeseries">McBroken</a>
 * <a href="https://wallethub.com/edu/happiest-states/6959">State Happiness</a>
 * <a href="https://www.kaggle.com/datasets/lislejoem/us-minimum-wage-by-state-from-1968-to-2017">State Minimum Wages</a>

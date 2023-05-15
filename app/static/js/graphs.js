@@ -4,10 +4,10 @@ var d = document.getElementById("myChart2");
 var e = document.getElementById("myChart3"); 
 STATES = { 'AK': 'Alaska',  'AL': 'Alabama', 'AR': 'Arkansas', 'AZ': 'Arizona', 'CA': 'California', 'CO': 'Colorado',  'CT': 'Connecticut', 'DE': 'Delaware','FL': 'Florida',  'GA': 'Georgia', 'HI': 'Hawaii', 'IA': 'Iowa', 'ID': 'Idaho', 'IL': 'Illinois', 'IN': 'Indiana', 'KS': 'Kansas','KY': 'Kentucky', 'LA': 'Louisiana', 'MA': 'Massachusetts', 'MD': 'Maryland', 'ME': 'Maine', 'MI': 'Michigan', 'MN': 'Minnesota', 'MO': 'Missouri', 'MS': 'Mississippi', 'MT': 'Montana', 'NC': 'North Carolina', 'ND': 'North Dakota', 'NE': 'Nebraska','NH': 'New Hampshire','NJ': 'New Jersey','NM': 'New Mexico','NV': 'Nevada','NY': 'New York','OH': 'Ohio','OK': 'Oklahoma','OR': 'Oregon','PA': 'Pennsylvania','RI': 'Rhode Island','SC': 'South Carolina','SD': 'South Dakota','TN': 'Tennessee','TX': 'Texas','UT': 'Utah','VA': 'Virginia','VT': 'Vermont','WA': 'Washington','WI': 'Wisconsin','WV': 'West Virginia','WY': 'Wyoming'}
 const keys = Object.keys(STATES);  
-console.log(keys); 
+// console.log(keys); 
 const happiness = []; 
 const brokenness = []; 
-var coordinates = []; 
+const coordinates = []; 
 
 for(let i = 0; i<50; i++){
   happiness[i] = stats[keys[i]]["happiness"]
@@ -16,8 +16,13 @@ for(let i = 0; i<50; i++){
 for(let r = 0; r<50; r++){
   brokenness[r] = parseFloat(stats[keys[r]]["broken_ratio"].replace("%", "")); 
 }
-console.log(happiness);
-console.log(brokenness);
+
+for(let h = 0; h<50; h++){
+  coordinates[h] = {x: parseFloat(stats[keys[h]]["broken_ratio"].replace("%", "")), y: stats[keys[h]]["happiness"]};
+}
+
+ console.log(coordinates);
+// console.log(brokenness);
   
 // single axes
 const data = {
@@ -49,7 +54,21 @@ new Chart(c, {
       title:{
         display: true, 
         text: "Happiness vs. Brokenness :("
-      }
+      },
+      scales:{
+        yAxes:[{
+          scaleLabel:{
+            display: true, 
+            labelString: "happiness OR brokenness",
+          },
+        },],
+        xAxes:[{
+          scaleLabel:{
+            display: true, 
+            labelString: "state",
+          },
+        },],
+      },
       },
 
 }); 
@@ -65,7 +84,6 @@ const data2 = {
     borderColor: 'blue',
     tension: 0.1,
     yAxisID: 'y'
-
   },
   {
     label: 'Brokenness', 
@@ -92,14 +110,31 @@ new Chart(d, {
         type: 'linear',
         display: true,
         position: 'left',
+        scaleLabel:{
+          display: true, 
+          labelString: "happiness",
+        },
+        gridLines:{
+          display: false, 
+        },
       },
       {
         id: 'y2',
         type: 'linear',
         display: true,
         position: 'right',
+        scaleLabel:{
+          display: true, 
+          labelString: "brokenness",
+        },
       },
-    ]
+    ],
+    xAxes:[{
+      scaleLabel:{
+        display: true, 
+        labelString: "state",
+      },
+    },],
     },
     title:{
       display: true, 
@@ -108,25 +143,13 @@ new Chart(d, {
   },
 });
 
-// attempting scatterplot ...
+// scattergraph (single relation)
 
 const scatterData = {
   datasets: [{
     label: 'Scatter Dataset',
-    data: [{
-      x: -10,
-      y: 0
-    }, {
-      x: 0,
-      y: 10
-    }, {
-      x: 10,
-      y: 5
-    }, {
-      x: 0.5,
-      y: 5.5
-    }],
-    backgroundColor: 'rgb(255, 99, 132)'
+    data: coordinates,
+    backgroundColor: 'red'
   }],
 }
 
@@ -135,7 +158,26 @@ new Chart(e, {
   type: 'scatter',
   data: scatterData,
   options: {
-    
-  }
+    responsive: true,
+    maintainAspectRatio: false,
+    scales:{
+      yAxes:[{
+        scaleLabel:{
+          display: true, 
+          labelString: "happiness",
+        },
+      },],
+      xAxes:[{
+        scaleLabel:{
+          display: true, 
+          labelString: "brokenness",
+        },
+      },],
+    },
+    title:{
+      display: true, 
+      text: "Happiness vs. Brokenness :("
+    },
+  },
 });
 
