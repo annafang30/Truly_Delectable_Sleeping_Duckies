@@ -2,13 +2,18 @@
 var c = document.getElementById("myChart");
 var d = document.getElementById("myChart2"); 
 var e = document.getElementById("myChart3"); 
+var f = document.getElementById("myChart4"); 
 STATES = { 'AK': 'Alaska',  'AL': 'Alabama', 'AR': 'Arkansas', 'AZ': 'Arizona', 'CA': 'California', 'CO': 'Colorado',  'CT': 'Connecticut', 'DE': 'Delaware','FL': 'Florida',  'GA': 'Georgia', 'HI': 'Hawaii', 'IA': 'Iowa', 'ID': 'Idaho', 'IL': 'Illinois', 'IN': 'Indiana', 'KS': 'Kansas','KY': 'Kentucky', 'LA': 'Louisiana', 'MA': 'Massachusetts', 'MD': 'Maryland', 'ME': 'Maine', 'MI': 'Michigan', 'MN': 'Minnesota', 'MO': 'Missouri', 'MS': 'Mississippi', 'MT': 'Montana', 'NC': 'North Carolina', 'ND': 'North Dakota', 'NE': 'Nebraska','NH': 'New Hampshire','NJ': 'New Jersey','NM': 'New Mexico','NV': 'Nevada','NY': 'New York','OH': 'Ohio','OK': 'Oklahoma','OR': 'Oregon','PA': 'Pennsylvania','RI': 'Rhode Island','SC': 'South Carolina','SD': 'South Dakota','TN': 'Tennessee','TX': 'Texas','UT': 'Utah','VA': 'Virginia','VT': 'Vermont','WA': 'Washington','WI': 'Wisconsin','WV': 'West Virginia','WY': 'Wyoming'}
 const keys = Object.keys(STATES);  
 // console.log(keys); 
 const happiness = []; 
 const brokenness = []; 
+const wages = [];
 const coordinates = []; 
+const coordinates2 = []; 
 
+console.log(wages); 
+console.log(coordinates2);
 for(let i = 0; i<50; i++){
   happiness[i] = stats[keys[i]]["happiness"]
 }
@@ -17,8 +22,16 @@ for(let r = 0; r<50; r++){
   brokenness[r] = parseFloat(stats[keys[r]]["broken_ratio"].replace("%", "")); 
 }
 
+for(let k = 0; k<50; k++){
+  wages[k] = parseFloat(stats[keys[k]]["min_wage"].replace("$", "")); 
+}
+
 for(let h = 0; h<50; h++){
   coordinates[h] = {x: brokenness[h], y: happiness[h]};
+}
+
+for(let j = 0; j<50; j++){
+  coordinates2[j] = {x: wages[j], y: happiness[j]}; 
 }
 
  console.log(coordinates);
@@ -49,7 +62,7 @@ new Chart(c, {
     type: "line",
     data: data,
     options: {
-      responsive: true,
+      responsive: true, 
       maintainAspectRatio: false, 
       title:{
         display: true, 
@@ -143,8 +156,6 @@ new Chart(d, {
   },
 });
 
-// scattergraph - single data set 
-
 const scatterData = {
   datasets: [{
     label: '',
@@ -153,6 +164,7 @@ const scatterData = {
   }],
 }
 
+// scatter of happiness v brokenness
 new Chart(e, {
   labels: keys,
   type: 'scatter',
@@ -177,6 +189,44 @@ new Chart(e, {
     title:{
       display: true, 
       text: "Happiness vs. Brokenness :("
+    },
+  },
+});
+
+// scattergraph - min wage vs happiness 
+
+const scatterData2 = {
+  datasets: [{
+    label: '',
+    data: coordinates2,
+    backgroundColor: 'red'
+  }],
+}
+
+new Chart(f, {
+  labels: keys,
+  type: 'scatter',
+  data: scatterData2,
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    scales:{
+      yAxes:[{
+        scaleLabel:{
+          display: true, 
+          labelString: "happiness",
+        },
+      },],
+      xAxes:[{
+        scaleLabel:{
+          display: true, 
+          labelString: "wages",
+        },
+      },],
+    },
+    title:{
+      display: true, 
+      text: "Happiness vs. Wages :("
     },
   },
 });
