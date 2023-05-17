@@ -31,7 +31,7 @@ def home():
 def interactive():
     logged_in = False
     session_username = ""
-    stats = get_all_states_stats()
+    stats = MCBROKEN
 
     if 'username' in session:
         logged_in = True
