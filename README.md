@@ -4,13 +4,14 @@
 ### Samson Wu: middle wear (Flask server) and back end work (API) 
 ### Ravindra Mangar: back end (Database and API)
  
-# Project Description: 
+# Project Description (Abstract): 
 * display of a map visualization of the United States
 * hovering displays of state happiness (%) and ice cream machine brokenness of individual states 
-* clicking into a state will display all above data plus minimum wage, a display of local mcdonalds locations, and yelp ratings. 
-* (stretch goal?) users can find mcdonald locations through address search 
+* clicking into a state will display of local mcdonalds locations via an interactive map, and yelp ratings of said local stores. 
 * users can login and use a rant forum to complain about mcdonalds ice cream machine outages. 
 * users can peruse through graphical representations of our data and our conclusions 
+* (stretch goal?) users can find mcdonald locations through address search 
+
 
 # APIs: 
 * <a href="https://github.com/stuy-softdev/notes-and-code/blob/main/api_kb/411_on_Yelp.md">Yelp</a>
