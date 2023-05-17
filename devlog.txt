@@ -111,3 +111,9 @@ AnnaF -- 2023-5-15 18:49
 - finished scattergram (malala tyvm for your sacrifices but at this point I don't think I'm made for higher education)
 - PM file mannagement and readme cleanup :,) 
 
+SamsonW -- 2023-5-17 8:56
+--------------------------------------------------------------
+- added base code for what will become our interactive map
+- renamed visual.js to home.js and moved to app/static/js/
+- fixed readme launch codes
+

@@ -27,6 +27,17 @@ def home():
 
     return render_template("home.html", login_status=logged_in, username=session_username, stats = stats)
 
+@app.route('/interactive')
+def interactive():
+    logged_in = False
+    session_username = ""
+    stats = get_all_states_stats()
+
+    if 'username' in session:
+        logged_in = True
+        session_username = session['username']
+
+    return render_template("interactive.html", login_status=logged_in, username=session_username, stats = stats)
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
