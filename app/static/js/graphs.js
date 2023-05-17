@@ -290,5 +290,5 @@ function toggleDisplay(canv) {
   }
 };
 
-mixButton.addEventListener("click", toggleDisplay(d))
-mixButton.addEventListener("click", mixedLine())
+mixButton.addEventListener("click", toggleDisplay(d));
+mixButton.addEventListener("click", mixedLine());
