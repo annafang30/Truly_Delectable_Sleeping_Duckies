@@ -16,6 +16,8 @@
 # APIs: 
 * <a href="https://github.com/stuy-softdev/notes-and-code/blob/main/api_kb/411_on_Yelp.md">Yelp</a>
     - Gets ratings of the specific McDonald's locations
+*<a href = https://github.com/stuy-softdev/notes-and-code/blob/main/api_kb/411_on_OpenStreetMap.md> OpenStreetMap</a>
+    - Gets the street layout of a specified area 
 
 # Datasets (this will fluctuate ^^): 
 * <a href="https://www.kaggle.com/datasets/thedevastator mcdonalds-ice-cream-machines-broken-timeseries">McBroken</a>

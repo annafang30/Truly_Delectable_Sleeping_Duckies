@@ -117,3 +117,14 @@ SamsonW -- 2023-5-17 8:56
 - renamed visual.js to home.js and moved to app/static/js/
 - fixed readme launch codes
 
+AnnaF and SashaS -- 2023-5-17 1:26
+--------------------------------------------------------------
+- interactivity of graphs 
+
+ALL -- 2023-5-17 8:56
+--------------------------------------------------------------
+What we learned 
+- other mapping groups are using d3 for formatting instead of hardcoding the coordinates (like we are!)
+- the line graph we used is not that helpful
+- using the openstreetmap.api will make what we want to accomplish much less complex than our current implementation (adding new api)
+
