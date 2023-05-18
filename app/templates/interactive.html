@@ -30,9 +30,12 @@
 
     <div id='map' style='width: 800px; height: 600px;'></div>
     <script>
-        var map = L.map('map').setView([40.716366, -74.010736], 18);
+        var stuy_mcd = [40.716366, -74.010736]
+
+        var map = L.map('map').setView(stuy_mcd, 18);
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            container: 'map'
+            container: 'map',
+            minZoom: 4,
         }).addTo(map);
 
         map.attributionControl.setPrefix(false);
@@ -42,11 +45,30 @@
             "features": {{ stats| tojson}}
         };
 
+        var marker = new Array();
         for (let i = 0; i < stores.features.length; i++) {
-            var marker = L.marker([stores.features[i].geometry.coordinates[1],stores.features[i].geometry.coordinates[0]]).addTo(map);
-            marker.bindPopup(stores.features[i].properties.street);
-            stores.features[i].properties.id = i;
+            if (distance(stores.features[i].geometry.coordinates[1], stuy_mcd[0], stores.features[i].geometry.coordinates[0], stuy_mcd[1]) < 300) {
+                var mark = new L.Marker([stores.features[i].geometry.coordinates[1], stores.features[i].geometry.coordinates[0]]);
+                marker.push(mark);
+                map.addLayer(mark);
+                mark.bindPopup(stores.features[i].properties.street);
+            }
         }
+
+        map.on('moveend', (e) => {
+            console.log(map.getZoom(), 1000 / Math.pow(map.getZoom() + 1, 0.9));
+            for (let i = 0; i < marker.length; i++) {
+                map.removeLayer(marker[i]);
+            }
+            for (let i = 0; i < stores.features.length; i++) {
+                if (distance(stores.features[i].geometry.coordinates[1], map.getCenter().lat, stores.features[i].geometry.coordinates[0], map.getCenter().lng) < 300) {
+                    var mark = new L.Marker([stores.features[i].geometry.coordinates[1], stores.features[i].geometry.coordinates[0]]);
+                    marker.push(mark);
+                    map.addLayer(mark);
+                    mark.bindPopup(stores.features[i].properties.street);
+                }
+            }
+        })
 
         function buildLocationList(stores) {
             for (const store of stores.features) {
