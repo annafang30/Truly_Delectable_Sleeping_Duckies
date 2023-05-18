@@ -4,10 +4,8 @@
 
 <head>
     <link rel="stylesheet" type="text/css" href="static/style.css">
-
-    <script src='https://unpkg.com/maplibre-gl@2.4.0/dist/maplibre-gl.js'></script>
-    <link href='https://unpkg.com/maplibre-gl@2.4.0/dist/maplibre-gl.css' rel='stylesheet' />
-
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.css" />
 </head>
 
 <body>
@@ -23,8 +21,6 @@
     <a href="/"><button>home</button></a>
     <br><br>
 
-    <!-- <iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.openstreetmap.org/export/embed.html?bbox=-102.72216796875001%2C32.13840869677251%2C-74.46533203125001%2C43.5326204268101&amp;layer=mapnik" style="border: 1px solid black"></iframe><br/><small><a href="https://www.openstreetmap.org/#map=6/38.057/-88.594">View Larger Map</a></small> -->
-
     <div class='sidebar'>
         <div class='heading'>
             <h1>Our locations</h1>
@@ -32,14 +28,14 @@
         <div id='listings' class='listings'></div>
     </div>
 
-    <div id='map' style='width: 400px; height: 300px;'></div>
+    <div id='map' style='width: 800px; height: 600px;'></div>
     <script>
-        var map = new maplibregl.Map({
-            container: 'map',
-            style: 'https://demotiles.maplibre.org/style.json', // stylesheet location
-            center: [-74.010736, 40.716366], // starting position [lng, lat]
-            zoom: 15 // starting zoom
-        });
+        var map = L.map('map').setView([40.716366, -74.010736], 18);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            container: 'map'
+        }).addTo(map);
+
+        map.attributionControl.setPrefix(false);
 
         const stores = {
             "type": "FeatureCollection",
@@ -47,23 +43,10 @@
         };
 
         for (let i = 0; i < stores.features.length; i++) {
+            var marker = L.marker([stores.features[i].geometry.coordinates[1],stores.features[i].geometry.coordinates[0]]).addTo(map);
+            marker.bindPopup(stores.features[i].properties.street);
             stores.features[i].properties.id = i;
         }
-
-        map.on('load', () => {
-            /* Add the data to your map as a layer */
-            map.addLayer({
-                id: 'locations',
-                type: 'circle',
-                /* Add a GeoJSON source containing place coordinates and information. */
-                source: {
-                    type: "geojson",
-                    data: stores
-                }
-            });
-
-            // buildLocationList(stores);
-        });
 
         function buildLocationList(stores) {
             for (const store of stores.features) {

@@ -128,3 +128,7 @@ What we learned
 - the line graph we used is not that helpful
 - using the openstreetmap.api will make what we want to accomplish much less complex than our current implementation (adding new api)
 
+SamsonW RavindraM -- 2023-5-18 13:18
+--------------------------------------------------------------
+- added leaflet openstreetmap
+- added markers with our mcd locations
