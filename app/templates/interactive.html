@@ -21,14 +21,19 @@
     <a href="/"><button>home</button></a>
     <br><br>
 
-    <div class='sidebar'>
-        <div class='heading'>
-            <h1>Our locations</h1>
-        </div>
-        <div id='listings' class='listings'></div>
-    </div>
+    <table>
+        <tr>
+            <td style="height: 10px; vertical-align: top; ">
+                <h1>Locations</h1>
+                <div id='listings' class='listings' style="overflow: auto; height: 450px; width: 300px;"></div>
+            </td>
+        
+            <td style="vertical-align: top;">
+                <div id='map' style='width: 800px; height: 550px;'></div>
+            </td>
+        </tr>
+    </table>
 
-    <div id='map' style='width: 800px; height: 600px;'></div>
 
     <script>
         var stats = {{ stats| tojson}};

@@ -1,8 +1,8 @@
 var mcd_icon = L.icon({
-    iconUrl: "mcd_icon.png",
-    iconSize:     [38, 95], // size of the icon
-    iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
-    popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+    iconUrl: "https://raw.githubusercontent.com/annafang30/Truly_Delectable_Sleeping_Duckies/main/app/static/assets/mcd_icon.png",
+    iconSize:     [38, 38], // size of the icon
+    iconAnchor:   [19, 38], // point of the icon which will correspond to marker's location
+    popupAnchor:  [0,-38] // point from which the popup should open relative to the iconAnchor
 });
 
 var stuy_mcd = [40.716366, -74.010736]
@@ -23,11 +23,13 @@ const stores = {
 
 var marker = new Array();
 for (let i = 0; i < stores.features.length; i++) {
+    stores.features[i].properties.id = i;
     if (getDistance([stores.features[i].geometry.coordinates[1], stores.features[i].geometry.coordinates[0]], [stuy_mcd[0], stuy_mcd[1]]) < 300) {
         var mark = new L.Marker([stores.features[i].geometry.coordinates[1], stores.features[i].geometry.coordinates[0]], {icon: mcd_icon});
         marker.push(mark);
         map.addLayer(mark);
-        mark.bindPopup(stores.features[i].properties.street);
+        mark.bindPopup(stores.features[i].properties.street + ": " + stores.features[i].properties.dot);
+        buildLocationList(stores.features[i]);
     }
 }
 
@@ -41,7 +43,8 @@ map.on('moveend', (e) => {
                 var mark = new L.Marker([stores.features[i].geometry.coordinates[1], stores.features[i].geometry.coordinates[0]], {icon: mcd_icon});
                 marker.push(mark);
                 map.addLayer(mark);
-                mark.bindPopup(stores.features[i].properties.street);
+                mark.bindPopup(stores.features[i].properties.street + ": " + stores.features[i].properties.dot);
+                buildLocationList(stores.features[i]);
             }
         }
     }
@@ -52,8 +55,7 @@ map.on('moveend', (e) => {
     }
 })
 
-function buildLocationList(stores) {
-    for (const store of stores.features) {
+function buildLocationList(store) {
         /* Add a new listing section to the sidebar. */
         const listings = document.getElementById('listings');
         const listing = listings.appendChild(document.createElement('div'));
@@ -73,7 +75,6 @@ function buildLocationList(stores) {
         const details = listing.appendChild(document.createElement('div'));
         details.innerHTML = `${store.properties.city}`;
         details.innerHTML += `, broken: ${store.properties.is_broken}`;
-    }
 }
 
 function getDistance(origin, destination) {
