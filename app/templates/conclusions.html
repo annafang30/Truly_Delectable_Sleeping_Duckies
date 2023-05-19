@@ -14,13 +14,23 @@
     {%endif%}
     <a href="/"><button>home</button></a>
     <br> 
-    <button id="mixed">Happiness v. Brokenness Line Plot</button>
-    <br>
+    <div class = center>
+        <h3> View Line Graphs</h3>
+        <button id="singleline">Single</button>
+        <button id = "dualline">Dual</button>
+    </div>
+    <br> 
+    <div class = center>
+        <h3> View Scatter Plots</h3>
+        <button id = "scatter">scatter1</button>
+        <button id = "scatter2">scatter2</button>
+        <button id = "scatter3">scatter3</button>
+    </div>
     <!-- // canvas rendering  -->
-    <!-- <div style="width:900px;height:700px">
+    <div style="width:900px;height:700px">
         <canvas id="myChart"></canvas>
-</div> -->
-    <!-- <br> -->
+</div>
+    <br>
     <div style="width:900px;height:700px">
         <canvas id="myChart2"></canvas>
     </div>
@@ -31,10 +41,6 @@
     <br> 
     <div style="width:900px;height:700px">
         <canvas id="myChart4"></canvas>
-    </div>
-    <br>
-    <div style="width:900px;height:700px">
-        <canvas id="myChart5"></canvas>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
     <script>
