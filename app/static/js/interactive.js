@@ -38,6 +38,8 @@ map.on('moveend', (e) => {
         for (let i = 0; i < marker.length; i++) {
             map.removeLayer(marker[i]);
         }
+        marker = new Array();
+        clearLocationList();
         for (let i = 0; i < stores.features.length; i++) {
             if (getDistance([stores.features[i].geometry.coordinates[1], stores.features[i].geometry.coordinates[0]], [map.getCenter().lat, map.getCenter().lng]) < 450) {
                 var mark = new L.Marker([stores.features[i].geometry.coordinates[1], stores.features[i].geometry.coordinates[0]], {icon: mcd_icon});
@@ -52,6 +54,8 @@ map.on('moveend', (e) => {
         for (let i = 0; i < marker.length; i++) {
             map.removeLayer(marker[i]);
         }
+        marker = new Array();
+        clearLocationList();
     }
 })
 
@@ -75,6 +79,17 @@ function buildLocationList(store) {
         const details = listing.appendChild(document.createElement('div'));
         details.innerHTML = `${store.properties.city}`;
         details.innerHTML += `, broken: ${store.properties.is_broken}`;
+}
+
+function clearLocationList(){
+    const listings = document.getElementById('listings');
+    children = []
+    for(let i = 0; i < listings.childNodes.length; i++){
+        children[i] = listings.childNodes[i];
+    }
+    for(let i = 0; i < children.length; i++){
+        children[i].remove();
+    }
 }
 
 function getDistance(origin, destination) {

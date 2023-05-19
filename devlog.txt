@@ -137,3 +137,8 @@ AnnaF -- 2023-5-19 10:44
 --------------------------------------------------------------
 - finished graph toggles
 - clean up charts.js and conclusion.html 
+
+SamsonW RavindraM -- 2023-5-19 13:57
+--------------------------------------------------------------
+- added locations list
+- added markers and locations updating on move
