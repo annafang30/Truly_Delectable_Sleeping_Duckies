@@ -5,7 +5,8 @@
 </head>
 
 <body>
-    <h2> GRAPH AND CONCLUDE</h2>
+    <div class = center>
+        <h2> GRAPH AND CONCLUDE</h2>
     {% if login_status %}
         {{username}}
         <a href="/logout"><button>logout</button></a>
@@ -13,6 +14,7 @@
         <a href="/login"><button>login</button></a>
     {%endif%}
     <a href="/"><button>home</button></a>
+    </div>
     <br> 
     <div class = center>
         <h3> View Line Graphs</h3>
@@ -27,24 +29,24 @@
         <button id = "scatter3">scatter3</button>
     </div>
     <!-- // canvas rendering  -->
-    <div style="width:900px;height:700px">
+    <div class = orient2>
         <canvas id="myChart"></canvas>
-    </div>
+    </div> 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
     <script>
         var stats = {{stats|tojson}};
     </script>
     <script src="../static/js/graphs.js"> </script>  
-    <h3>What does it mean?</h3>
-    <h4>Graph Conclusions</h4>
-    <p>There's a negative correlation between machine brokenness and overall state happiness. ie. The more machines are broken, the (seemingly) less happy the state is. We explored some possible causes to rates of broken ice cream machine, focusing on minimum wage. There is a clear positive correlation between the minimum wage of the state and its happiness index - most likely relating to the work environment aspect. So the minimum wage and happiness have a direct relationship and by relation, minimum wage and the rate of broken ice cream machines have an inverse one.</p>
+    <h3 class = center>What does it mean?</h3>
+    <h4 class = center>Graph Conclusions</h4>
+    <p class = orient>There's a negative correlation between machine brokenness and overall state happiness. ie. The more machines are broken, the (seemingly) less happy the state is. We explored some possible causes to rates of broken ice cream machine, focusing on minimum wage. There is a clear positive correlation between the minimum wage of the state and its happiness index - most likely relating to the work environment aspect. So the minimum wage and happiness have a direct relationship and by relation, minimum wage and the rate of broken ice cream machines have an inverse one.</p>
     <br> 
-    <h4>Independent Research</h4>
-    <p>The most direct culprit of the never-ending broken ice cream machines is the company that McDonald's partners with. Taylor Company supplies a specific machine to McDonald's, the C602 model with a self-cleaning function.</p>
+    <h4 class = center>Independent Research</h4>
+    <p class = orient>The most direct culprit of the never-ending broken ice cream machines is the company that McDonald's partners with. Taylor Company supplies a specific machine to McDonald's, the C602 model with a self-cleaning function.</p>
     <br>
-    <p>The machine takes four hours to complete the cleaning cycle - during these four hours, it obviously can't make any ice cream. So when an employee tells you that the machine is broken, it's probably just going through the extensive cleaning process.</p>
+    <p class = orient>The machine takes four hours to complete the cleaning cycle - during these four hours, it obviously can't make any ice cream. So when an employee tells you that the machine is broken, it's probably just going through the extensive cleaning process.</p>
     <br>
-    <p>Best case scenario, the night-shift employee turns on the machine cleaning function during closing hours. But this means that if the machine runs into an error in the night(which it does), there's no one to fix it.</p>
+    <p class = orient>Best case scenario, the night-shift employee turns on the machine cleaning function during closing hours. But this means that if the machine runs into an error in the night(which it does), there's no one to fix it.</p>
     
 </body>
 

@@ -1,3 +1,13 @@
-/* .center{
+.center{
     text-align: center;
-} */
+}
+
+.orient{
+    margin-left: 30px; 
+    margin-right: 30px;
+}
+
+.orient2{
+    margin-left: 60px;
+    margin-right: 60px;
+}

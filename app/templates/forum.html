@@ -7,14 +7,16 @@
 </head>
 
 <body>
-	<h2>FORUM</h2>
-    {% if login_status %}
+	<h2 class = center>FORUM</h2>
+    <div class = center>
+        {% if login_status %}
         {{username}}
         <a href="/logout"><button>logout</button></a>
-    {%else%}
+        {%else%}
         <a href="/login"><button>login</button></a>
-    {%endif%}
-    <a href="/"><button>home</button></a>
+        {%endif%}
+        <a href="/"><button>home</button></a>
+    </div>
     <br>
     Make new post:
     <form action="/forum" method="POST">

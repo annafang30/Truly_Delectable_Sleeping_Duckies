@@ -63,7 +63,7 @@ var drawChart1 = function(e){
     data: data,
     options: {
       responsive: true, 
-      maintainAspectRatio: false, 
+      maintainAspectRatio: true, 
       title:{
         display: true, 
         text: "Happiness vs. Brokenness :("
@@ -118,7 +118,7 @@ var drawChart2 = function(e){
     data: data2,
     options: {
       responsive: true,
-      maintainAspectRatio: false,
+      maintainAspectRatio: true,
       scales: {
         yAxes: [ // I literally tried to do this the normal way and IT DOESN'T WORK so this is my workaround TT 
         {
@@ -178,7 +178,7 @@ var drawChart3 = function(e){
     data: scatterData,
     options: {
       responsive: true,
-      maintainAspectRatio: false,
+      maintainAspectRatio: true,
       scales:{
         yAxes:[{
           scaleLabel:{
@@ -218,7 +218,7 @@ var drawChart4 = function(e){
     data: scatterData2,
     options: {
       responsive: true,
-      maintainAspectRatio: false,
+      maintainAspectRatio: true,
       scales:{
         yAxes:[{
           scaleLabel:{
@@ -257,7 +257,7 @@ var drawChart5 = function(e) {
     data: scatterData3,
     options: {
       responsive: true,
-      maintainAspectRatio: false,
+      maintainAspectRatio: true,
       scales:{
         yAxes:[{
           scaleLabel:{
@@ -282,33 +282,41 @@ var drawChart5 = function(e) {
 
 // all event listeners 
 
+// use to center the canvas 
+var x = 0; 
+var y = 0; 
+
+var wipe = () => {
+  ctx.clearRect(x,y, c.width, c.height);  
+}
+
 var singleAxis = () =>{
   console.log("single"); 
-  ctx.clearRect(0, 0, c.width, c.height);
+  wipe(); 
   drawChart1(); 
 };
 
 var dualAxis = () => {
   console.log("dual"); 
-  ctx.clearRect(0, 0, c.width, c.height);
+  wipe(); 
   drawChart2(); 
 };
 
 var drawscatter1 = () => {
   console.log("scatter1");
-  ctx.clearRect(0, 0, c.width, c.height);
+  wipe(); 
   drawChart3(); 
 }
 
 var drawscatter2 = () => {
   console.log("scatter2"); 
-  ctx.clearRect(0, 0, c.width, c.height);
+  wipe(); 
   drawChart4(); 
 }
 
 var drawscatter3 = () => {
   console.log("scatter3"); 
-  ctx.clearRect(0, 0, c.width, c.height);
+  wipe(); 
   drawChart5(); 
 }
 

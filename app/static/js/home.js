@@ -2,8 +2,11 @@ var c = document.getElementById("main");
 var ctx = c.getContext("2d");
 var hover_box = document.getElementById("hoverbox");
 
+ctx.canvas.width = window.innerWidth; 
+ctx.canvas.height = window.innerHeight;
 const width = ctx.canvas.width;
-const height = ctx.canvas.height;;
+const height = ctx.canvas.height;
+
 
 const ROWS = 9;
 const COLS = 12;
@@ -45,10 +48,10 @@ const states = [];
 for (let r = 0; r < ROWS; r++) {
   for (let c = 0; c < COLS; c++) {
     if (r % 2 == 1) {
-      states[r * COLS + c] = draw_state(70 + 65 * c, 35 + 60 * r, VALID_STATES[r * COLS + c]);
+      states[r * COLS + c] = draw_state(70 + (width/12.308) * c, 35 + (height/10) * r, VALID_STATES[r * COLS + c]);
     }
     else {
-      states[r * COLS + c] = draw_state(35 + 65 * c, 35 + 60 * r, VALID_STATES[r * COLS + c]);
+      states[r * COLS + c] = draw_state(35 + (width/12.308) * c, 35 + (height/10) * r, VALID_STATES[r * COLS + c]);
     }
   }
 }
