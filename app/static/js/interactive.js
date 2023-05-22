@@ -66,6 +66,7 @@ map.on('moveend', (e) => {
                 buildLocationList(stores.features[i]);
             }
         }
+        checkEmptyList();
     }
     else{
         for (let i = 0; i < marker.length; i++) {
@@ -114,6 +115,16 @@ function showEmptyList(){
 
     const name = listing.appendChild(document.createElement('b'));
     name.innerHTML = `Zoom in to see stores.`;
+}
+
+function checkEmptyList(){
+    const listings = document.getElementById('listings');
+    if(listings.childNodes.length == 0){
+        const listing = listings.appendChild(document.createElement('div'));
+
+        const name = listing.appendChild(document.createElement('b'));
+        name.innerHTML = `There are no tracked McDonald's here :(`;
+    }
 }
 
 function clearLocationList(){

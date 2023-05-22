@@ -147,3 +147,5 @@ SamsonW -- 2023-5-22 10:00
 --------------------------------------------------------------
 - improved locations list and markers on map
 - added green icons
+- added tab icons and titles
+- added trend lines to scatter graphs

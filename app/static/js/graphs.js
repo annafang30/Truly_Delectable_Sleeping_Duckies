@@ -167,7 +167,12 @@ const scatterData = {
   datasets: [{
     label: '',
     data: coordinates,
-    backgroundColor: 'red'
+    backgroundColor: 'red',
+    trendlineLinear: {
+      style: "rgb(43 ,66 ,255, 0.3)",
+      lineStyle: "dotted|solid",
+      width: 2
+  }
   }],
 }
 
@@ -207,7 +212,12 @@ const scatterData2 = {
   datasets: [{
     label: '',
     data: coordinates2,
-    backgroundColor: 'red'
+    backgroundColor: 'red',
+    trendlineLinear: {
+      style: "rgb(43 ,66 ,255, 0.3)",
+      lineStyle: "dotted|solid",
+      width: 2
+  }
   }],
 }
 
@@ -246,7 +256,12 @@ const scatterData3 = {
   datasets: [{
     label: '',
     data: coordinates3,
-    backgroundColor: 'red'
+    backgroundColor: 'red',
+    trendlineLinear: {
+      style: "rgb(43 ,66 ,255, 0.3)",
+      lineStyle: "dotted|solid",
+      width: 2
+  }
   }],
 }
 
