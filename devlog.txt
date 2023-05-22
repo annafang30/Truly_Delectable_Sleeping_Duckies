@@ -151,3 +151,9 @@ SamsonW -- 2023-5-22 10:00
 - added trend lines to scatter graphs
 - fixed forum bug
 - error page
+
+AnnaF -- 2023-5-22 15:17 
+--------------------------------------------------------------
+- upload final design doc
+- page styling 
+- repo cleanup
