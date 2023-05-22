@@ -3,10 +3,13 @@
 <html>
 
 <head>
+    <title>McMapping Disappointment: {{stats["name"]}}</title>
+    <link rel="stylesheet" type="text/css" href="static/css/style.css">
+    <link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/annafang30/Truly_Delectable_Sleeping_Duckies/main/app/static/assets/mcd_icon.png">
 </head>
 
 <body>
-	<h2>{{state}}</h2>
+	<h2>{{stats["name"]}}</h2>
     {% if login_status %}
         {{username}}
         <a href="/logout"><button>logout</button></a>

@@ -3,7 +3,11 @@
 <html>
 
 <head>
-	<link rel="stylesheet" type="text/css" href="static/style.css">
+	<title>McMapping Disappointment: Register</title>
+	<link rel="stylesheet" type="text/css" href="static/css/style.css">
+	<link rel="icon" type="image/x-icon"
+		href="https://raw.githubusercontent.com/annafang30/Truly_Delectable_Sleeping_Duckies/main/app/static/assets/mcd_icon.png">
+
 </head>
 
 <body>
@@ -19,7 +23,7 @@
 		confirm password
 		<input type="password" name="new_password_confirm" id="password_confirm">
 		<br>
-		<input type="submit" class="register" name="register">
+		<input type="submit" class="register" name="register" value="Register">
 	</form>
 
 	<div>
@@ -33,7 +37,7 @@
 	<a href="/"><button>home</button></a>
 
 	<script>
-		var users = {{users|tojson}};
+		var users = {{ users| tojson}};
 	</script>
 	<script src="../static/js/register.js"></script>
 </body>
