@@ -79,7 +79,6 @@ for (let i = 0; i < posts.length; i++) {
     const children = comment_blocks[i].childNodes;
     if(children.length == 1){
         children[0].lastChild.style.display = "none";
-        break;
     }
     for (let j = 1; j < children.length; j++) {
         children[j].style.display = "none";
