@@ -31,7 +31,7 @@ const stores = {
 var marker = new Array();
 for (let i = 0; i < stores.features.length; i++) {
     stores.features[i].properties.id = i;
-    if (getDistance([stores.features[i].geometry.coordinates[1], stores.features[i].geometry.coordinates[0]], [stuy_mcd[0], stuy_mcd[1]]) < 300) {
+    if (map.getBounds().contains(L.latLng(stores.features[i].geometry.coordinates[1], stores.features[i].geometry.coordinates[0]))) {
         if(stores.features[i].properties.dot == "working"){
             var mark = new L.Marker([stores.features[i].geometry.coordinates[1], stores.features[i].geometry.coordinates[0]], {icon: mcd_icon_green});
         }
@@ -46,14 +46,14 @@ for (let i = 0; i < stores.features.length; i++) {
 }
 
 map.on('moveend', (e) => {
-    if(map.getZoom() >= 10){
+    if(map.getZoom() >= 12){
         for (let i = 0; i < marker.length; i++) {
             map.removeLayer(marker[i]);
         }
         marker = new Array();
         clearLocationList();
         for (let i = 0; i < stores.features.length; i++) {
-            if (getDistance([stores.features[i].geometry.coordinates[1], stores.features[i].geometry.coordinates[0]], [map.getCenter().lat, map.getCenter().lng]) < 450) {
+            if (map.getBounds().contains(L.latLng(stores.features[i].geometry.coordinates[1], stores.features[i].geometry.coordinates[0]))) {
                 if(stores.features[i].properties.dot == "working"){
                     var mark = new L.Marker([stores.features[i].geometry.coordinates[1], stores.features[i].geometry.coordinates[0]], {icon: mcd_icon_green});
                 }
@@ -73,6 +73,7 @@ map.on('moveend', (e) => {
         }
         marker = new Array();
         clearLocationList();
+        showEmptyList();
     }
 })
 
@@ -80,22 +81,39 @@ function buildLocationList(store) {
         /* Add a new listing section to the sidebar. */
         const listings = document.getElementById('listings');
         const listing = listings.appendChild(document.createElement('div'));
+        listing.style.border = "solid 1px";
         /* Assign a unique `id` to the listing. */
         listing.id = `listing-${store.properties.id}`;
         /* Assign the `item` class to each listing for styling. */
         listing.className = 'item';
 
         /* Add the link to the individual listing created above. */
-        const name = listing.appendChild(document.createElement('b'));
-        name.href = '#';
+        const name = listing.appendChild(document.createElement('a'));
+        name.href = `https://www.google.com/search?q=${store.properties.street}, ${store.properties.city} McDonald's`;
         name.className = 'title';
+        name.target = "_blank";
         name.id = `link-${store.properties.id}`;
-        name.innerHTML = `${store.properties.street}`;
+        name.innerHTML = `${store.properties.street}, ${store.properties.city}`;
+        name.style.textDecoration = "none";
+        name.style.color = "black";
+        name.style.fontWeight = "bold";
 
-        /* Add details to the individual listing. */
         const details = listing.appendChild(document.createElement('div'));
-        details.innerHTML = `${store.properties.city}`;
-        details.innerHTML += `, broken: ${store.properties.is_broken}`;
+        details.innerHTML = `${store.properties.dot}`;
+        if(store.properties.dot == "working"){
+            details.style.color = "green";
+        }
+        else{
+            details.style.color = "red";
+        }
+}
+
+function showEmptyList(){
+    const listings = document.getElementById('listings');
+    const listing = listings.appendChild(document.createElement('div'));
+
+    const name = listing.appendChild(document.createElement('b'));
+    name.innerHTML = `Zoom in to see stores.`;
 }
 
 function clearLocationList(){
@@ -107,13 +125,4 @@ function clearLocationList(){
     for(let i = 0; i < children.length; i++){
         children[i].remove();
     }
-}
-
-function getDistance(origin, destination) {
-    lat1 = origin[0]
-    long1 = origin[1]
-    lat2 = destination[0]
-    long2 = destination[1]
-
-    return 2*6371 * Math.asin(Math.sqrt(Math.sin((lat2-lat1)/2) * Math.sin((lat2-lat1)/2) + Math.cos(lat1) * Math.cos(lat2) * Math.sin((long2 - long1)/2) * Math.sin((long2 - long1)/2)))
 }

@@ -142,3 +142,8 @@ SamsonW RavindraM -- 2023-5-19 13:57
 --------------------------------------------------------------
 - added locations list
 - added markers and locations updating on move
+
+SamsonW -- 2023-5-22 10:00
+--------------------------------------------------------------
+- improved locations list and markers on map
+- added green icons
