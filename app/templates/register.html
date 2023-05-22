@@ -10,7 +10,7 @@
 
 </head>
 
-<body>
+<body class = center>
 	<h2>REGISTER</h2>
 
 	<form action="/register" method="POST">
@@ -23,8 +23,10 @@
 		confirm password
 		<input type="password" name="new_password_confirm" id="password_confirm">
 		<br>
+		<br>
 		<input type="submit" class="register" name="register" value="Register">
 	</form>
+	<br>
 
 	<div>
 		<li id="caps" style="display: none;">⚠️Caps are on</li>
@@ -32,7 +34,7 @@
 		<li id="r_pass" style="display: block;">Password has at least 4 characters</li>
 		<li id="pass_check" style="display: block;">Passwords match</li>
 	</div>
-
+	<br> 
 	<a href="/login"><button>login</button></a>
 	<a href="/"><button>home</button></a>
 
