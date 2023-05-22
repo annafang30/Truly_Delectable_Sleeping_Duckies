@@ -1,3 +1,17 @@
+var table = document.getElementById("table");
+
+align_table();
+
+window.addEventListener("resize", (e)=> {
+    align_table();
+});
+
+function align_table(){
+    // console.log(table.style.width, table.style.height);
+    // table.style.width = window.innerWidth;
+    // table.style.height = window.innerHeight;
+}
+
 var mcd_icon = L.icon({
     iconUrl: "https://raw.githubusercontent.com/annafang30/Truly_Delectable_Sleeping_Duckies/main/app/static/assets/mcd_icon.png",
     iconSize:     [38, 38], // size of the icon

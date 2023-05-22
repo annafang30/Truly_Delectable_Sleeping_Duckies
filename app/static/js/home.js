@@ -4,10 +4,12 @@ var hover_box = document.getElementById("hoverbox");
 
 ctx.canvas.width = window.innerWidth; 
 ctx.canvas.height = window.innerHeight;
-const width = ctx.canvas.width;
-const height = ctx.canvas.height;
+let width = ctx.canvas.width;
+let height = ctx.canvas.height;
 
+let RADIUS = width/33.3333;
 
+const states = [];
 const ROWS = 9;
 const COLS = 12;
 
@@ -22,9 +24,29 @@ class State {
   is_hovered;
 }
 
-function draw_state(x, y, state_name) {
-  let RADIUS = 30;
-  
+adjust_canvas_size();
+
+window.addEventListener("resize", (e)=>{
+  adjust_canvas_size();
+})
+
+function adjust_canvas_size(){
+  ctx.canvas.width = window.innerWidth/1.25;
+  ctx.canvas.height = ctx.canvas.width*10.7/16;
+  width = ctx.canvas.width;
+  height = ctx.canvas.height;
+  diagonal = Math.sqrt(Math.pow(width, 2) + Math.pow(height, 2));
+  RADIUS = diagonal/33.3333;
+  create_grid();
+  c.dispatchEvent(new Event('mousemove'));
+
+  // console.log("window", window.innerWidth, window.innerHeight);
+  // console.log("canvas", c.width, c.height);
+  // console.log("ctx", ctx.canvas.width, ctx.canvas.height);
+}
+
+
+function draw_state(x, y, state_name) {  
   let path = new Path2D();
   ctx.strokeStyle = "white";
   ctx.fillStyle = "white";
@@ -42,19 +64,22 @@ function draw_state(x, y, state_name) {
   return state;
 }
 
-const states = [];
 
-// create staggered grid of states
-for (let r = 0; r < ROWS; r++) {
-  for (let c = 0; c < COLS; c++) {
-    if (r % 2 == 1) {
-      states[r * COLS + c] = draw_state(70 + (width/12.308) * c, 35 + (height/10) * r, VALID_STATES[r * COLS + c]);
-    }
-    else {
-      states[r * COLS + c] = draw_state(35 + (width/12.308) * c, 35 + (height/10) * r, VALID_STATES[r * COLS + c]);
+function create_grid(){
+  // create staggered grid of states
+  for (let r = 0; r < ROWS; r++) {
+    for (let c = 0; c < COLS; c++) {
+      if (r % 2 == 1) {
+        states[r * COLS + c] = draw_state(RADIUS*1.25 + RADIUS + (2*RADIUS+width/100) * c, RADIUS*1.25 + (2*RADIUS) * r, VALID_STATES[r * COLS + c]);
+      }
+      else {
+        states[r * COLS + c] = draw_state(RADIUS*1.25 + (2*RADIUS+width/100) * c, RADIUS*1.25 + (2*RADIUS) * r, VALID_STATES[r * COLS + c]);
+      }
     }
   }
 }
+
+create_grid();
 
 // draws everything once first
 for (let i = 0; i < ROWS * COLS; i++) {
