@@ -150,3 +150,4 @@ SamsonW -- 2023-5-22 10:00
 - added tab icons and titles
 - added trend lines to scatter graphs
 - fixed forum bug
+- error page

@@ -7,6 +7,7 @@ from flask import Flask, render_template, request, session, redirect, url_for
 from input_module import *
 from api_module import *
 from db_module import *
+from werkzeug.exceptions import HTTPException
 
 reset_database()
 generate_preset_database()
@@ -138,6 +139,13 @@ def forum():
             return redirect(url_for("forum"))
 
     return render_template("forum.html", login_status=logged_in, username=session_username, posts=posts)
+
+@app.errorhandler(Exception)
+def handle_exception(e):
+    if isinstance(e, HTTPException):
+        return render_template("error.html", e=e)
+    
+    return render_template("error.html", e=e)
 
 
 if __name__ == "__main__":
