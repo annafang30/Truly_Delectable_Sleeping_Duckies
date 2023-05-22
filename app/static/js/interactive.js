@@ -5,6 +5,13 @@ var mcd_icon = L.icon({
     popupAnchor:  [0,-38] // point from which the popup should open relative to the iconAnchor
 });
 
+var mcd_icon_green = L.icon({
+    iconUrl: "https://raw.githubusercontent.com/annafang30/Truly_Delectable_Sleeping_Duckies/main/app/static/assets/mcd_icon_green.png",
+    iconSize:     [38, 38], // size of the icon
+    iconAnchor:   [19, 38], // point of the icon which will correspond to marker's location
+    popupAnchor:  [0,-38] // point from which the popup should open relative to the iconAnchor
+});
+
 var stuy_mcd = [40.716366, -74.010736]
 
 var map = L.map('map').setView(stuy_mcd, 18);
@@ -25,7 +32,12 @@ var marker = new Array();
 for (let i = 0; i < stores.features.length; i++) {
     stores.features[i].properties.id = i;
     if (getDistance([stores.features[i].geometry.coordinates[1], stores.features[i].geometry.coordinates[0]], [stuy_mcd[0], stuy_mcd[1]]) < 300) {
-        var mark = new L.Marker([stores.features[i].geometry.coordinates[1], stores.features[i].geometry.coordinates[0]], {icon: mcd_icon});
+        if(stores.features[i].properties.dot == "working"){
+            var mark = new L.Marker([stores.features[i].geometry.coordinates[1], stores.features[i].geometry.coordinates[0]], {icon: mcd_icon_green});
+        }
+        else{
+            var mark = new L.Marker([stores.features[i].geometry.coordinates[1], stores.features[i].geometry.coordinates[0]], {icon: mcd_icon});
+        }
         marker.push(mark);
         map.addLayer(mark);
         mark.bindPopup(stores.features[i].properties.street + ": " + stores.features[i].properties.dot);
@@ -42,7 +54,12 @@ map.on('moveend', (e) => {
         clearLocationList();
         for (let i = 0; i < stores.features.length; i++) {
             if (getDistance([stores.features[i].geometry.coordinates[1], stores.features[i].geometry.coordinates[0]], [map.getCenter().lat, map.getCenter().lng]) < 450) {
-                var mark = new L.Marker([stores.features[i].geometry.coordinates[1], stores.features[i].geometry.coordinates[0]], {icon: mcd_icon});
+                if(stores.features[i].properties.dot == "working"){
+                    var mark = new L.Marker([stores.features[i].geometry.coordinates[1], stores.features[i].geometry.coordinates[0]], {icon: mcd_icon_green});
+                }
+                else{
+                    var mark = new L.Marker([stores.features[i].geometry.coordinates[1], stores.features[i].geometry.coordinates[0]], {icon: mcd_icon});
+                }
                 marker.push(mark);
                 map.addLayer(mark);
                 mark.bindPopup(stores.features[i].properties.street + ": " + stores.features[i].properties.dot);
