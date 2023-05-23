@@ -1,15 +1,20 @@
-var table = document.getElementById("table");
+var mapdiv = document.getElementById("map");
+var listings = document.getElementById("listings");
+var locations = document.getElementById("locations");
 
-align_table();
-
+resize_map();
 window.addEventListener("resize", (e)=> {
-    align_table();
+    resize_map();
 });
 
-function align_table(){
-    // console.log(table.style.width, table.style.height);
-    // table.style.width = window.innerWidth;
-    // table.style.height = window.innerHeight;
+function resize_map(){
+    mapdiv.style.width = window.innerWidth/1.5 + "px";
+    mapdiv.style.height = window.innerWidth*9/16/1.5 + "px";
+
+    listings.style.width = window.innerWidth*0.9 - window.innerWidth/1.5 + "px";
+    locations.style.width = listings.style.width;
+    listings.style.height = window.innerWidth*9/16/1.5*0.85 + "px";
+    console.log(mapdiv.style.width, mapdiv.style.height);
 }
 
 var mcd_icon = L.icon({
