@@ -16,22 +16,29 @@
 </head>
 
 <body>
-    <div class="text-center">
+    <a href="/" style="text-decoration: none;">
         <h1 style = "margin-top:10px; text-align:center; color: #FFC72C">MCMAPPING <span style = "color:#DA291C">DISAPPOINTMENT</span></h1>
-        {% if login_status %}
-        {{username}}
-        <a href="/logout"><button>logout</button></a>
-        {%else%}
-        <a href="/login"><button>login</button></a>
-        {%endif%}
-        <a href="/forum"><button>forum</button></a>
-        <a href="/conclusion"><button>conclusions</button></a>
-        <a href="/"><button>home</button></a>
-    </div>
+      </a>
+      <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+              <div class="nav navbar-left">
+                <a class="active" href="/"><button class="btn navbar-btn">Home</button></a>
+                <a href="/forum"><button class="btn navbar-btn">Forums</button></a>
+                <a href="/conclusion"><button class="btn navbar-btn">Conclusion</button></a>
+                <a href="/interactive"><button class="btn navbar-btn">Interactive</button></a>
+              </div>
+              <div class="nav navbar-right">
+                {% if login_status %}
+                <p class="btn navbar-btn">{{username}}</p>
+                <a href="/logout"><button class="btn navbar-btn"><span class="glyphicon glyphicon-log-out"></span>Logout</button></a>
+                {%else%}
+                <a href="/login"><button class="btn navbar-btn"><span class="glyphicon glyphicon-log-in"></span>Login</button></a>
+                {%endif%}
+              </div>
+            </div>
+          </nav>
 
-    <br>
-
-    <div class="container-fluid text-center" style="border: solid 1px;">
+    <div class="container-fluid text-center">
         <div class="row justify-content-center">
             <div id="left-column" class="d-flex flex-column align-items-center">
                 <div id='map'></div>

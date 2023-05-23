@@ -12,17 +12,21 @@
 </head>
 
 <body class=center>
+	<a href="/" style="text-decoration: none;">
+		<h1 style = "margin-top:10px; text-align:center; color: #FFC72C">MCMAPPING <span style = "color:#DA291C">DISAPPOINTMENT</span></h1>
+	  </a>
+	
 	<h2 style = "color: #FFC72C">REGISTER</h2>
 
 	<form action="/register" method="POST">
-		username
-		<input type="text" name="new_username" id="username">
-		<br>
-		password
-		<input type="password" name="new_password" id="password">
-		<br>
-		confirm password
-		<input type="password" name="new_password_confirm" id="password_confirm">
+		New Username
+		<input type="text" name="new_username" id="username" placeholder="Username">
+		<br><br>
+		New Password
+		<input type="password" name="new_password" id="password" placeholder="Password">
+		<br><br>
+		Confirm Password
+		<input type="password" name="new_password_confirm" id="password_confirm" placeholder="Confirm Password">
 		<br>
 		<br>
 		<input type="submit" class="register" name="register" value="Register">
@@ -36,8 +40,8 @@
 		<li id="pass_check" style="display: block;">Passwords match</li>
 	</div>
 	<br>
-	<a href="/login"><button>login</button></a>
-	<a href="/"><button>home</button></a>
+	<a href="/login"><button>Login</button></a>
+	<a href="/"><button>Home</button></a>
 
 	<script>
 		var users = {{ users| tojson}};

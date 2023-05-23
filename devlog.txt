@@ -162,3 +162,5 @@ SamsonW -- 2023-5-22 10:00
 --------------------------------------------------------------
 - fixed interactive css
 - added locations list to states pages
+- added colors to home
+- added Sasha's navbar to every page

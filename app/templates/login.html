@@ -11,23 +11,28 @@
 		integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
 <body>
+	<a href="/" style="text-decoration: none;">
+		<h1 style = "margin-top:10px; text-align:center; color: #FFC72C">MCMAPPING <span style = "color:#DA291C">DISAPPOINTMENT</span></h1>
+	  </a>
+	
 	<!-- login -->
 	<div class=center>
 		<h2 style = "color: #FFC72C">LOGIN</h2>
 		<h3>{{error}}</h3>
 		<form action="/login" method="POST">
-			username
-			<input type="text" name="username">
+			Username
+			<input type="text" name="username" placeholder="Username">
 			<br>
-			password
-			<input type="password" name="password">
+			<br>
+			Password
+			<input type="password" name="password" placeholder="Password">
 			<br>
 			<br>
 			<input type="submit" class="log in" name="login" value="Login">
 		</form>
 		<br>
-		<a href="/register"><button>register</button></a>
-		<a href="/"><button>home</button></a>
+		<a href="/register"><button>Register</button></a>
+		<a href="/"><button>Home</button></a>
 	</div>
 </body>
 

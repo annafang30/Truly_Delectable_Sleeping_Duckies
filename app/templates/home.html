@@ -13,8 +13,10 @@
 </head>
 
 <body>
-    <h1 style = "margin-top:10px; text-align:center; color: #FFC72C">M<span style = "color:#DA291C">c</span>M<span style = "color:#DA291C">a</span>p<span style = "color:#DA291C">p</span>i<span style = "color:#DA291C">n</span>g <span style = "color:#DA291C">D</span>i<span style = "color:#DA291C">s</span>a<span style = "color:#DA291C">p</span>p<span style = "color:#DA291C">o</span>i<span style = "color:#DA291C">n</span>t<span style = "color:#DA291C">m</span>e<span style = "color:#DA291C">n</span>t</h1>
-    <nav class="navbar navbar-inverse">
+  <a href="/" style="text-decoration: none;">
+    <h1 style = "margin-top:10px; text-align:center; color: #FFC72C">MCMAPPING <span style = "color:#DA291C">DISAPPOINTMENT</span></h1>
+  </a>
+  <nav class="navbar navbar-inverse">
         <div class="container-fluid">
           <div class="nav navbar-left">
             <a class="active" href="/"><button class="btn navbar-btn">Home</button></a>
@@ -24,10 +26,10 @@
           </div>
           <div class="nav navbar-right">
             {% if login_status %}
-            {{username}}
-            <a href="/logout"><span class="glyphicon glyphicon-log-out"></span><button>logout</button></a>
+            <p class="btn navbar-btn">{{username}}</p>
+            <a href="/logout"><button class="btn navbar-btn"><span class="glyphicon glyphicon-log-out"></span>Logout</button></a>
             {%else%}
-            <a href="/login"><span class="glyphicon glyphicon-log-in"></span><button>login</button></a>
+            <a href="/login"><button class="btn navbar-btn"><span class="glyphicon glyphicon-log-in"></span>Login</button></a>
             {%endif%}
           </div>
         </div>

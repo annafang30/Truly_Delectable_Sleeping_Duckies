@@ -31,7 +31,7 @@ window.addEventListener("resize", (e)=>{
 })
 
 function adjust_canvas_size(){
-  ctx.canvas.width = window.innerWidth/1.25;
+  ctx.canvas.width = window.innerWidth/1.5;
   ctx.canvas.height = ctx.canvas.width*10.7/16;
   ctx.font = "bold " + ctx.canvas.width/(76.8/2) + "px Helvetica";
   ctx.textAlign = "center";
@@ -105,10 +105,10 @@ document.addEventListener('mousemove', function (e) {
   }
 
   if (e.clientY > window.innerHeight / 2) {
-    hover_box.style.transform = 'translateY(' + (e.clientY - 260) + 'px)';
+    hover_box.style.transform = 'translateY(' + (e.clientY - 310) + 'px)';
   }
   else {
-    hover_box.style.transform = 'translateY(' + (e.clientY - 100) + 'px)';
+    hover_box.style.transform = 'translateY(' + (e.clientY - 150) + 'px)';
   }
   if (e.clientX > window.innerWidth / 2) {
     hover_box.style.transform += 'translateX(' + (e.clientX - 170) + 'px)';
@@ -126,7 +126,7 @@ function is_any_state_hovered() {
       children[1].textContent = stats[states[i].name]["name"];
       children[3].textContent = "HAPPINESS: " + stats[states[i].name]["happiness"];
       children[5].textContent = "MIN WAGE: " + stats[states[i].name]["min_wage"];
-      children[7].textContent = "% BROKEN: " + stats[states[i].name]["broken_ratio"];
+      children[7].textContent = "BROKEN: " + stats[states[i].name]["broken_ratio"];
       return true;
     }
   }
