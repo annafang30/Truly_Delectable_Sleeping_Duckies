@@ -31,8 +31,11 @@ window.addEventListener("resize", (e)=>{
 })
 
 function adjust_canvas_size(){
-  ctx.canvas.width = window.innerWidth/1.5;
+  ctx.canvas.width = window.innerWidth/1.25;
   ctx.canvas.height = ctx.canvas.width*10.7/16;
+  ctx.font = "bold " + ctx.canvas.width/(76.8/2) + "px Helvetica";
+  ctx.textAlign = "center";
+  ctx.textBaseline = "middle";
   width = ctx.canvas.width;
   height = ctx.canvas.height;
   diagonal = Math.sqrt(Math.pow(width, 2) + Math.pow(height, 2));
@@ -84,11 +87,11 @@ create_grid();
 // draws everything once first
 for (let i = 0; i < ROWS * COLS; i++) {
   if (VALID_STATES[i] != '') {
-    ctx.fillStyle = "red";
+    ctx.fillStyle = determine_color(parseFloat(stats[states[i].name]["broken_ratio"]));
     states[i].is_hovered = false;
     ctx.fill(states[i].path);
-    ctx.fillStyle = "white";
-    ctx.fillText(states[i].name, states[i].x - 6, states[i].y + 2);
+    ctx.fillStyle = "black";
+    ctx.fillText(states[i].name, states[i].x, states[i].y);
   }
 }
 
@@ -102,16 +105,16 @@ document.addEventListener('mousemove', function (e) {
   }
 
   if (e.clientY > window.innerHeight / 2) {
-    hover_box.style.transform = 'translateY(' + (e.clientY - 320) + 'px)';
+    hover_box.style.transform = 'translateY(' + (e.clientY - 280) + 'px)';
   }
   else {
-    hover_box.style.transform = 'translateY(' + (e.clientY - 90) + 'px)';
+    hover_box.style.transform = 'translateY(' + (e.clientY - 100) + 'px)';
   }
   if (e.clientX > window.innerWidth / 2) {
-    hover_box.style.transform += 'translateX(' + (e.clientX - 220) + 'px)';
+    hover_box.style.transform += 'translateX(' + (e.clientX - 170) + 'px)';
   }
   else {
-    hover_box.style.transform += 'translateX(' + (e.clientX + 10) + 'px)';
+    hover_box.style.transform += 'translateX(' + (e.clientX) + 'px)';
   }
 }, false);
 
@@ -122,7 +125,7 @@ function is_any_state_hovered() {
       var children = hover_box.childNodes;
       children[1].textContent = stats[states[i].name]["name"];
       children[3].textContent = "HAPPINESS: " + stats[states[i].name]["happiness"];
-      children[5].textContent = "BROKEN RATIO: " + stats[states[i].name]["broken_ratio"];
+      children[5].textContent = "BROKEN: " + stats[states[i].name]["broken_ratio"];
       return true;
     }
   }
@@ -140,12 +143,12 @@ c.addEventListener("mousemove", (e) => {
         states[i].is_hovered = true;
       }
       else {
-        ctx.fillStyle = "red";
+        ctx.fillStyle = determine_color(parseFloat(stats[states[i].name]["broken_ratio"]));
         states[i].is_hovered = false;
       }
       ctx.fill(states[i].path);
-      ctx.fillStyle = "white";
-      ctx.fillText(states[i].name, states[i].x - 6, states[i].y + 2);
+      ctx.fillStyle = "black";
+      ctx.fillText(states[i].name, states[i].x, states[i].y);
     }
   }
 });
@@ -160,11 +163,46 @@ c.addEventListener("click", (e) => {
       }
     }
   }
-})
+});
 
 // removes hover when out of canvas
 c.addEventListener("mouseout", (e) => {
   for (let i = 0; i < ROWS * COLS; i++) {
     states[i].is_hovered = false;
   }
-})
+});
+
+function determine_color(ratio){
+  color = "#00FF00";
+  if(3.5 <= ratio && ratio < 7){
+    color = "#8DFF00";
+  }
+  else if(7 <= ratio && ratio < 10.5){
+    color = "#D4FF00";
+  }
+  else if(10.5 <= ratio && ratio < 14){
+    color = "#F7FF00";
+  }
+  else if(14 <= ratio && ratio < 17.5){
+    color = "#FFE400";
+  }
+  else if(17.5 <= ratio && ratio < 21){
+    color = "#FFAF00";
+  }
+  else if(21 <= ratio && ratio < 24.5){
+    color = "#FF8C00";
+  }
+  else if(24.5 <= ratio && ratio < 27){
+    color = "#FF6900";
+  }
+  else if(27 <= ratio && ratio < 31.5){
+    color = "#FF4600";
+  }
+  else if(31.5 <= ratio && ratio < 35){
+    color = "#FF2300";
+  }
+  else if(35 <= ratio){
+    color = "red";
+  }
+  return color;
+}
