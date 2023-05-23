@@ -12,21 +12,25 @@
 </head>
 
 <body>
-    <h2>{{stats["name"]}}</h2>
-    {% if login_status %}
-    {{username}}
-    <a href="/logout"><button>logout</button></a>
-    {%else%}
-    <a href="/login"><button>login</button></a>
-    {%endif%}
-    <a href="/"><button>home</button></a>
-    <a href="/forum"><button>forum</button></a>
+    <div class="text-center">
+        <h2>{{stats["name"]}}</h2>
+        {% if login_status %}
+        {{username}}
+        <a href="/logout"><button>logout</button></a>
+        {%else%}
+        <a href="/login"><button>login</button></a>
+        {%endif%}
+        <a href="/"><button>home</button></a>
+        <a href="/forum"><button>forum</button></a>
+    </div>
     <br>
-    <p>Happiness: {{stats["happiness"]}}</p>
-    <p>Minimum Wage: {{stats["min_wage"]}}</p>
-    <p>Broken Icecream Machines: {{stats["broken"]}}</p>
-    <p>Total Tracked McDonald's Locations: {{stats["locations"]}}</p>
-    <p>Broken Ratio: {{stats["broken_ratio"]}}</p>
+    <div class="text-center">
+        <p>Happiness: {{stats["happiness"]}}</p>
+        <p>Minimum Wage: {{stats["min_wage"]}}</p>
+        <p>Broken Icecream Machines: {{stats["broken"]}}</p>
+        <p>Tracked McDonald's Locations: {{stats["locations"]}}</p>
+        <p>Broken Ratio: {{stats["broken_ratio"]}}</p>
+    </div>
 </body>
 
 </html>
