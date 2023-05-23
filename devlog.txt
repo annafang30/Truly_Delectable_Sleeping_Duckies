@@ -157,3 +157,7 @@ AnnaF -- 2023-5-22 15:17
 - upload final design doc
 - page styling 
 - repo cleanup
+
+SamsonW -- 2023-5-22 10:00
+--------------------------------------------------------------
+- fixed interactive css
