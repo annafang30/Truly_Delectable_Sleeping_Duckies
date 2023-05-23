@@ -131,19 +131,15 @@ function buildLocationList(store) {
         name.className = 'title';
         name.target = "_blank";
         name.id = `link-${store.properties.id}`;
-        name.innerHTML = `${store.properties.street}, ${store.properties.city}`;
+        name.innerHTML = `${store.properties.street}, ${store.properties.city}, ${store.properties.state}`;
         name.style.textDecoration = "none";
-        name.style.color = "black";
-        name.style.fontWeight = "bold";
-
-        const details = listing.appendChild(document.createElement('div'));
-        details.innerHTML = `${store.properties.dot}`;
         if(store.properties.dot == "working"){
-            details.style.color = "green";
+            name.style.color = "green";
         }
         else{
-            details.style.color = "red";
+            name.style.color = "red";
         }
+        name.style.fontWeight = "bold";
 }
 
 function showEmptyList(){

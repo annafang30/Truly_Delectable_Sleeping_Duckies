@@ -161,3 +161,4 @@ AnnaF -- 2023-5-22 15:17
 SamsonW -- 2023-5-22 10:00
 --------------------------------------------------------------
 - fixed interactive css
+- added locations list to states pages

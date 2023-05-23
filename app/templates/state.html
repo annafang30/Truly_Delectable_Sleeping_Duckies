@@ -30,6 +30,18 @@
         <p>Broken Icecream Machines: {{stats["broken"]}}</p>
         <p>Tracked McDonald's Locations: {{stats["locations"]}}</p>
         <p>Broken Ratio: {{stats["broken_ratio"]}}</p>
+        <h3>Locations</h3>
+        <div id='listings' style="overflow: auto; height: 350px;">
+            {% for location in locations %}
+                <div>
+                    {% if location["properties"]["dot"] == "working" %}
+                        <a href="{{"https://www.google.com/search?q="+ location["properties"]["street"] + ", " + location["properties"]["city"] + " McDonald's"}}" target="_blank" style="text-decoration: none; font-weight: bold; color: green;">{{ location["properties"]["street"] }}, {{ location["properties"]["city"] }}, {{ location["properties"]["state"] }}</a>
+                    {%else%}
+                        <a href="{{"https://www.google.com/search?q="+ location["properties"]["street"] + ", " + location["properties"]["city"] + " McDonald's"}}" target="_blank" style="text-decoration: none; font-weight: bold; color: red;">{{ location["properties"]["street"] }}, {{ location["properties"]["city"] }}, {{ location["properties"]["state"] }}</a>
+                    {%endif%}
+                </div>
+            {% endfor %}
+        </div>
     </div>
 </body>
 
