@@ -227,6 +227,9 @@ def print_all_forum_posts():
     print(dict)
     db.close()
 
+def get_list_of_locations_by_state(state):
+    return [i for i in MCBROKEN if i["properties"]["state"] == state]
+
 def get_total_tracked_locations_by_state(state):
     return len([i for i in MCBROKEN if i["properties"]["state"] == state])
 

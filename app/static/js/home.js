@@ -31,7 +31,7 @@ window.addEventListener("resize", (e)=>{
 })
 
 function adjust_canvas_size(){
-  ctx.canvas.width = window.innerWidth/1.25;
+  ctx.canvas.width = window.innerWidth/1.5;
   ctx.canvas.height = ctx.canvas.width*10.7/16;
   width = ctx.canvas.width;
   height = ctx.canvas.height;
@@ -102,16 +102,16 @@ document.addEventListener('mousemove', function (e) {
   }
 
   if (e.clientY > window.innerHeight / 2) {
-    hover_box.style.transform = 'translateY(' + (e.clientY - 280) + 'px)';
+    hover_box.style.transform = 'translateY(' + (e.clientY - 320) + 'px)';
   }
   else {
-    hover_box.style.transform = 'translateY(' + (e.clientY - 100) + 'px)';
+    hover_box.style.transform = 'translateY(' + (e.clientY - 90) + 'px)';
   }
   if (e.clientX > window.innerWidth / 2) {
-    hover_box.style.transform += 'translateX(' + (e.clientX - 170) + 'px)';
+    hover_box.style.transform += 'translateX(' + (e.clientX - 220) + 'px)';
   }
   else {
-    hover_box.style.transform += 'translateX(' + (e.clientX) + 'px)';
+    hover_box.style.transform += 'translateX(' + (e.clientX + 10) + 'px)';
   }
 }, false);
 
@@ -122,7 +122,7 @@ function is_any_state_hovered() {
       var children = hover_box.childNodes;
       children[1].textContent = stats[states[i].name]["name"];
       children[3].textContent = "HAPPINESS: " + stats[states[i].name]["happiness"];
-      children[5].textContent = "BROKEN: " + stats[states[i].name]["broken_ratio"];
+      children[5].textContent = "BROKEN RATIO: " + stats[states[i].name]["broken_ratio"];
       return true;
     }
   }

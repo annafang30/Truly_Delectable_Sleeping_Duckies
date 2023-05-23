@@ -114,8 +114,9 @@ def state(state_name):
         session_username = session['username']
 
     stats = get_state_stats(state_name)
+    locations = get_list_of_locations_by_state(state_name)
 
-    return render_template("state.html", login_status=logged_in, username=session_username, stats=stats)
+    return render_template("state.html", login_status=logged_in, username=session_username, stats=stats, locations=locations)
 
 
 @app.route('/forum', methods=['GET', 'POST'])

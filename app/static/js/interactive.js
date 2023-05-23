@@ -1,6 +1,8 @@
 var mapdiv = document.getElementById("map");
 var listings = document.getElementById("listings");
 var locations = document.getElementById("locations");
+var left_column = document.getElementById("left-column");
+var right_column = document.getElementById("right-column");
 
 resize_map();
 window.addEventListener("resize", (e)=> {
@@ -8,13 +10,29 @@ window.addEventListener("resize", (e)=> {
 });
 
 function resize_map(){
-    mapdiv.style.width = window.innerWidth/1.5 + "px";
-    mapdiv.style.height = window.innerWidth*9/16/1.5 + "px";
+    if(window.innerWidth < 800){
+        listings.style.width = window.innerWidth*0.8 + "px";
+        mapdiv.style.width = window.innerWidth*0.9 + "px";
+        mapdiv.style.height = window.innerWidth*9/16 + "px";
+        listings.style.height = "50vh";
+        left_column.style.marginRight = "0px";
+        right_column.style.marginLeft = "0px";
+    }
+    else{
+        mapdiv.style.width = window.innerWidth/1.5 + "px";
+        mapdiv.style.height = window.innerWidth*9/16/1.5 + "px";
+        listings.style.width = window.innerWidth*0.9 - window.innerWidth/1.5 + "px";
+        // listings.style.height = window.innerWidth*9/16/1.5*0.8 + "px";
+        left_column.style.marginRight = "1.5%";
+        right_column.style.marginLeft = "1.5%";
+        left_column.style.height = mapdiv.style.height;
+        left_column.parentNode.style.height = mapdiv.style.height;
+        listings.style.height = parseFloat(mapdiv.style.height) - 50 + "px";
+    }
+    left_column.style.width = mapdiv.style.width;
 
-    listings.style.width = window.innerWidth*0.9 - window.innerWidth/1.5 + "px";
-    locations.style.width = listings.style.width;
-    listings.style.height = window.innerWidth*9/16/1.5*0.85 + "px";
-    console.log(mapdiv.style.width, mapdiv.style.height);
+    // locations.style.width = listings.style.width;
+    // console.log(mapdiv.style.width, mapdiv.style.height);
 }
 
 var mcd_icon = L.icon({
@@ -113,19 +131,15 @@ function buildLocationList(store) {
         name.className = 'title';
         name.target = "_blank";
         name.id = `link-${store.properties.id}`;
-        name.innerHTML = `${store.properties.street}, ${store.properties.city}`;
+        name.innerHTML = `${store.properties.street}, ${store.properties.city}, ${store.properties.state}`;
         name.style.textDecoration = "none";
-        name.style.color = "black";
-        name.style.fontWeight = "bold";
-
-        const details = listing.appendChild(document.createElement('div'));
-        details.innerHTML = `${store.properties.dot}`;
         if(store.properties.dot == "working"){
-            details.style.color = "green";
+            name.style.color = "green";
         }
         else{
-            details.style.color = "red";
+            name.style.color = "red";
         }
+        name.style.fontWeight = "bold";
 }
 
 function showEmptyList(){

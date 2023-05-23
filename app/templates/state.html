@@ -12,7 +12,11 @@
 </head>
 
 <body>
+<<<<<<< HEAD
     <div style = "text-align:center; margin-top: 40px;"> 
+=======
+    <div class="text-center">
+>>>>>>> 81a3dc85517d4fcdda032c73b87301587c8cef59
         <h2>{{stats["name"]}}</h2>
         {% if login_status %}
         {{username}}
@@ -24,12 +28,33 @@
         <a href="/forum"><button>forum</button></a>
     </div>
     <br>
+<<<<<<< HEAD
     <div style= "font-weight: bold; text-align: center;"> 
         <p>Happiness: {{stats["happiness"]}}</p>
         <p>Minimum Wage: {{stats["min_wage"]}}</p>
         <p>Broken Icecream Machines: {{stats["broken"]}}</p>
         <p>Total Tracked McDonald's Locations: {{stats["locations"]}}</p>
         <p>Broken Ratio: {{stats["broken_ratio"]}}</p>
+=======
+    <div class="text-center">
+        <p>Happiness: {{stats["happiness"]}}</p>
+        <p>Minimum Wage: {{stats["min_wage"]}}</p>
+        <p>Broken Icecream Machines: {{stats["broken"]}}</p>
+        <p>Tracked McDonald's Locations: {{stats["locations"]}}</p>
+        <p>Broken Ratio: {{stats["broken_ratio"]}}</p>
+        <h3>Locations</h3>
+        <div id='listings' style="overflow: auto; height: 350px;">
+            {% for location in locations %}
+                <div>
+                    {% if location["properties"]["dot"] == "working" %}
+                        <a href="{{"https://www.google.com/search?q="+ location["properties"]["street"] + ", " + location["properties"]["city"] + " McDonald's"}}" target="_blank" style="text-decoration: none; font-weight: bold; color: green;">{{ location["properties"]["street"] }}, {{ location["properties"]["city"] }}, {{ location["properties"]["state"] }}</a>
+                    {%else%}
+                        <a href="{{"https://www.google.com/search?q="+ location["properties"]["street"] + ", " + location["properties"]["city"] + " McDonald's"}}" target="_blank" style="text-decoration: none; font-weight: bold; color: red;">{{ location["properties"]["street"] }}, {{ location["properties"]["city"] }}, {{ location["properties"]["state"] }}</a>
+                    {%endif%}
+                </div>
+            {% endfor %}
+        </div>
+>>>>>>> 81a3dc85517d4fcdda032c73b87301587c8cef59
     </div>
 </body>
 
