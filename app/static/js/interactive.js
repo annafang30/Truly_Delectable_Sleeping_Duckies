@@ -15,6 +15,7 @@ function resize_map(){
         mapdiv.style.width = window.innerWidth*0.9 + "px";
         mapdiv.style.height = window.innerWidth*9/16 + "px";
         listings.style.height = "50vh";
+        left_column.style.height = mapdiv.style.height;
         left_column.style.marginRight = "0px";
         right_column.style.marginLeft = "0px";
     }
