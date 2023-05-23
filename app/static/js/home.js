@@ -105,7 +105,7 @@ document.addEventListener('mousemove', function (e) {
   }
 
   if (e.clientY > window.innerHeight / 2) {
-    hover_box.style.transform = 'translateY(' + (e.clientY - 230) + 'px)';
+    hover_box.style.transform = 'translateY(' + (e.clientY - 260) + 'px)';
   }
   else {
     hover_box.style.transform = 'translateY(' + (e.clientY - 100) + 'px)';
@@ -125,7 +125,8 @@ function is_any_state_hovered() {
       var children = hover_box.childNodes;
       children[1].textContent = stats[states[i].name]["name"];
       children[3].textContent = "HAPPINESS: " + stats[states[i].name]["happiness"];
-      children[5].textContent = "BROKEN: " + stats[states[i].name]["broken_ratio"];
+      children[5].textContent = "MIN WAGE: " + stats[states[i].name]["min_wage"];
+      children[7].textContent = "% BROKEN: " + stats[states[i].name]["broken_ratio"];
       return true;
     }
   }
