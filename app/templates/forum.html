@@ -23,18 +23,20 @@
         <a href="/"><button>home</button></a>
     </div>
     <br>
-    Make new post:
-    <form action="/forum" method="POST">
-        <input type="hidden" name="postid" style="display: none;" value="-1">
-        <input type="text" name="posttext">
-        <input type="submit" name="post" value="Post">
-    </form>
-    <div id="posts"></div>
-
-    <script>
-        var posts = {{ posts| tojson}};
-    </script>
-    <script src="../../static/js/forum.js"></script>
+    <div style = "margin-left: 10px;"> 
+        Make new post:
+        <form action="/forum" method="POST">
+            <input type="hidden" name="postid" style="display: none;" value="-1">
+            <input type="text" name="posttext">
+            <input type="submit" name="post" value="Post">
+        </form>
+        <div id="posts"></div>
+    
+        <script>
+            var posts = {{ posts| tojson}};
+        </script>
+        <script src="../../static/js/forum.js"></script>
+    </div>
 </body>
 
 </html>
