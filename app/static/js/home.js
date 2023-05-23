@@ -105,7 +105,7 @@ document.addEventListener('mousemove', function (e) {
   }
 
   if (e.clientY > window.innerHeight / 2) {
-    hover_box.style.transform = 'translateY(' + (e.clientY - 280) + 'px)';
+    hover_box.style.transform = 'translateY(' + (e.clientY - 230) + 'px)';
   }
   else {
     hover_box.style.transform = 'translateY(' + (e.clientY - 100) + 'px)';
