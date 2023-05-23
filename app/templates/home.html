@@ -3,7 +3,7 @@
 <html>
 
 <head>
-    <title>Mcmapping Disappointment</title>
+    <title>McMapping Disappointment</title>
 
     <link rel="stylesheet" type="text/css" href="static/css/style.css">
     <link rel="icon" type="image/x-icon"
@@ -14,17 +14,24 @@
 
 <body>
     <h1 style = "margin-top:10px; text-align:center; color: #FFC72C">M<span style = "color:#DA291C">c</span>M<span style = "color:#DA291C">a</span>p<span style = "color:#DA291C">p</span>i<span style = "color:#DA291C">n</span>g <span style = "color:#DA291C">D</span>i<span style = "color:#DA291C">s</span>a<span style = "color:#DA291C">p</span>p<span style = "color:#DA291C">o</span>i<span style = "color:#DA291C">n</span>t<span style = "color:#DA291C">m</span>e<span style = "color:#DA291C">n</span>t</h1>
-    <div class=center>
-        {% if login_status %}
-        {{username}}
-        <a href="/logout"><button>logout</button></a>
-        {%else%}
-        <a href="/login"><button>login</button></a>
-        {%endif%}
-        <a href="/forum"><button>forum</button></a>
-        <a href="/conclusion"><button>conclusions</button></a>
-        <a href="/interactive"><button>interactive</button></a>
-    </div>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+          <div class="nav navbar-left">
+            <a class="active" href="/"><button class="btn navbar-btn">Home</button></a>
+            <a href="/forum"><button class="btn navbar-btn">Forums</button></a>
+            <a href="/conclusion"><button class="btn navbar-btn">Conclusion</button></a>
+            <a href="/interactive"><button class="btn navbar-btn">Interactive</button></a>
+          </div>
+          <div class="nav navbar-right">
+            {% if login_status %}
+            {{username}}
+            <a href="/logout"><span class="glyphicon glyphicon-log-out"></span><button>logout</button></a>
+            {%else%}
+            <a href="/login"><span class="glyphicon glyphicon-log-in"></span><button>login</button></a>
+            {%endif%}
+          </div>
+        </div>
+      </nav>
     <br>
 
     <div id="hoverbox"
