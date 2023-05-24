@@ -164,3 +164,9 @@ SamsonW -- 2023-5-22 10:00
 - added locations list to states pages
 - added colors to home
 - added Sasha's navbar to every page
+
+SamsonW -- 2023-5-24 8:18
+--------------------------------------------------------------
+- added setup and check database upon startup
+- removed resetting and generating preset database
+- fixed minor issues in readme

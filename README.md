@@ -42,7 +42,7 @@
 6. Install any required python libraries via ```pip install -r requirements.txt```
 <br> 
 
-7. Navigate to /app and run the app in your terminal by typing ```python3 __init__.py```. Clicking on the link labeled "http://127.0.0.1:5000" or cping it into any browser of your choice will give you free reign to explore our project. 
+7. Navigate to ```/app``` and run the app in your terminal by typing ```python3 __init__.py```. Clicking on the link labeled "http://127.0.0.1:5000" or cping it into any browser of your choice will give you free reign to explore our project. 
 <br> 
 
 8. Enjoy! 

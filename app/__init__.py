@@ -9,8 +9,9 @@ from api_module import *
 from db_module import *
 from werkzeug.exceptions import HTTPException
 
-reset_database()
-generate_preset_database()
+# reset_database()
+# generate_preset_database()
+check_and_setup_database()
 
 app = Flask(__name__)
 app.secret_key = b'pAHy827suhda*82sljsjd'
