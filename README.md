@@ -18,15 +18,15 @@
     - Gets the street layout of a specified area 
 
 # Datasets (this will fluctuate ^^): 
-* <a href="https://www.kaggle.com/datasets/thedevastator mcdonalds-ice-cream-machines-broken-timeseries">McBroken</a>
-* <a href="https://wallethub.com/edu/happiest-states/6959">State Happiness</a>
-* <a href="https://www.kaggle.com/datasets/lislejoem/us-minimum-wage-by-state-from-1968-to-2017">State Minimum Wages</a>
+* <a href="https://github.com/rashiq/mcbroken-archive" target="_blank">McBroken</a>
+* <a href="https://worldpopulationreview.com/state-rankings/happiest-states" target="_blank">State Happiness</a>
+* <a href="https://worldpopulationreview.com/state-rankings/minimum-wage-by-state" target="_blank">State Minimum Wages</a>
 
 # Launch Codes:
 1. Navigate in your terminal to a directory where you will store "McMapping Disappointment" using ```cd```
 <br>
 
-2. Clone the repository with ```git clone git@github.com:annafang30/Truly_Delectable_Sleeping_Duckies.git```
+2. Clone the repository with ```https://github.com/annafang30/Truly_Delectable_Sleeping_Duckies.git```
 
 <br>
 
