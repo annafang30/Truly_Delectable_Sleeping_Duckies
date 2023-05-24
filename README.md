@@ -33,7 +33,7 @@
 3. Navigate into the Truly_Delectable_Sleeping_Duckies repo using ```cd Truly_Delectable_Sleeping_Duckies/```
 <br>
 
-4. Create a virtual environment by entering `````python3 -m venv <VENV_PATH>```
+4. Create a virtual environment by entering ```python3 -m venv <VENV_PATH>```
 <br>
 
 5. Activate the virtual environment with ```. <VENV_PATH>/bin/activate``` or ```Scripts\activate.bat```
